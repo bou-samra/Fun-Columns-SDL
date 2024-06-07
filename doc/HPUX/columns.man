@@ -1,0 +1,87 @@
+.TH COLUMNS 6 "HP-UX 9.0 August 1992" "Hewlett-Packard Company" "X Version (Release 5 UNSUPPORTED)"
+
+.SH NAME
+columns – X11 strategy game
+
+.SH SYNOPSIS
+columns
+
+.SH DESCRIPTION
+\fBNOTE:\fP This client is not supported by HP in HP-UX Release 9.0. It is included in the release, but it is now installed in the directory /usr/contrib/bin/X11. Your $PATH environment variable should contain this directory path in order to run this client. See the release notes for more information.
+
+columns is a single-player-game in which one attempts to manipulate multi-colored tiles in order to form sequences of three boxes of the same color--aranged horizontally, vertically, or diagonally.
+
+The \fIcolumns\fP game window is a 6 x 18 array of squares. The playing tiles drop from the top of the screen, and a comprised of 3 colored boxes arranged in a column. The color of each box in a tile is assigned at random from a pool of--at most--six possible colors: red, green, blue, yellow, magenta, and cyan.
+
+Tiles drop one at a time, and may be manipulated in one of four different ways by 1) moving the tile to the left one position (the \fIleft\fP command), 2) moving the tile to the right one position (\fIright\fP), 3) cycling the colors of the boxes in the tile such that each color moves down one box, with the top box in the tile assuming the color of the bottom box (\fIcycle\fP), and 4) dropping the tile straight down into place (\fIdrop\fP).
+
+The game ends when a tile is placed and--after counting all sequences and removing the boxes involved--a box remains touching the ceiling line near the top of the game window.
+
+.SH "LEVELS OF DIFFICULTY"
+As mentioned above, the pool of colors from which the boxes in a given tile are assigned is--at most--six. In practise, however, there are twelve different difficulty levels for which the actual number of colors in the pool and the constraints upon them are unique.
+
+At the lowest level, only the first three colors from the pool are used and there are no constraints on how the boxes in a tile are assigned.
+
+At the highest level, the pool includes all six possible colors, and the boxes in the tile are constrained such that none of them may be of the same color.
+
+The complete table depicting the size of the pool and the constraints on the boxes in a tile at each level is as follows:
+\fC
+.vs -3
+
+                             # OF COLORS    MAX # OF BOXES
+                     LEVEL   IN THE POOL   OF ANY ONE COLOR
+                     -----   -----------   ----------------
+                       1          3               3
+                       2          "               2		
+                       3          "               1
+                       4          4               3
+                       5          "               2
+                       6          "               1
+                       7          5               3
+                       8          "               2
+                       9          "               1
+                      10          6               3
+                      11          "               2
+                      12          "               1
+.vs
+\fP
+
+The difficulty level begins at on and increases by one every tenth tile.
+
+.SH SCORING
+The primary object of the game is to arrange the tiles on the game window such that boxes of the same color tile line up in three-box sequences. A sequence may be formed horizontally, vertically, or diagonally.
+
+Any time a three-box sequence is produced, the three boxes forming the sequence are removed from the game window, and all boxes located above those removed drop to occupy the vacated squares of the game window. This adds an interesting twist to the game in that new three-box sequences may be produced in a “chain-reaction” fashion as a result off boxes dropping to fill in squares vacated by other boxes. For the purpose of explanation, each phase of sequence-forming is referred to as a “chain”.
+
+Each sequence formed scores 10 points if formed during the first chain, 20 points if formed during the second “chain”, and so on, with the points-per-sequence increasing by 10 points with each new chain.
+
+Points are also awarded based on the current difficulty level, and on how quickly a tile is dropped down into place by the player.
+
+The points awarded for placing a tile are equivalent to the level number. Thus, six points are awarded for each tile successfully placed when at level six.
+
+The points awarded for placing a tile quickly are equivalent to the number of rows that the tile drops when the DROP keyboard command is issued. Thus, 18 points are awarded if the tile is dropped to the bottom of the game window at the moment it first appears at the top of the game window.
+
+.SH COMMANDS
+.TP
+\fB4\fP, \fB5\fP, \fB6\fP, \fB2\fP
+These are the \fIleft\fP, \fIcycle\fP, \fIright\fP, and \fIdrop\fP commands as mapped onto the numeric keypad.
+.TP
+\fBJ\fP, \fBK\fP, \fBL\fP, \fB<SPACE>\fP
+These are the \fIleft\fP, \fIcycle\fP, \fIright\fP, and \fIdrop\fP keyboard commands for a right-handed player.
+.TP
+\fBS\fP, \fBD\fP, \fBF\fP, \fB<SPACE>\fP
+These are the \fIleft\fP, \fIcycle\fP, \fIright\fP, and \fIdrop\fP keyboard commands for a left-handed player.
+.TP
+\fBI\fP
+Iconify the game window. ("Yipes! The boss!")
+.TP
+\fBQ\fP
+Quit the current game and exit.
+.TP
+\fBR\fP
+Quit the current and start over.
+.PP
+All other keys cause the game to pause. Play is resumed by pressing any key besides Q or R.
+
+.SH AUTHOR
+Jay Geertsen, Hewlett-Packard Company
