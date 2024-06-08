@@ -23,6 +23,12 @@ type the following commands:
 
 ## Todo
 * Still a Work In Progress
+* Cluster detection research routine (in progress)
+* Hi score routine
+* Points allocation routine
+* No more moves routine
+* Block reposition routine
+* There may be more that I have missed above
 
 ## Author(s)
 * IIGS Version: FTA (1990/91)
