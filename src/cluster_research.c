@@ -3,6 +3,17 @@
  ** jc 'al-khwarizmi' bou-samra        **
  ** paragonsoft 08/06/24               **
  ****************************************/
+
+/********************
+ * tile combos	    *
+ * empty	= 0 *
+ * pink		= 6 *
+ * green	= 1 *
+ * purple	= 2 *
+ * yellow	= 3 *
+ * orange	= 4 *
+ * cyan		= 5 *
+ * ******************/
 #include <stdio.h>
 
 int i, j, k, x, y, z;
