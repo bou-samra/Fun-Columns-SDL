@@ -28,6 +28,7 @@ type the following commands:
 * Points allocation routine
 * No more moves routine
 * Block reposition routine
+* Timing
 * There may be more that I have missed above
 
 ## Author(s)
