@@ -1,0 +1,183 @@
+/***************************************
+ ** cluster research routine          **
+ ** jc 'al-khwarizmi' bou-samra       **
+ ** paragonsoft 08/06/24              **
+ ***************************************/
+#include <stdio.h>
+
+int i, j, k, x, y, z;
+int counter = 0;
+int matches [100][7] = {};
+int grid [18][8] = {
+{0, 1, 0, 0, 0, 0, 0, 0},
+{0, 1, 1, 4, 5, 6, 7, 8},
+{0, 1, 1, 1, 5, 6, 7, 8},
+{0, 2, 1, 1, 5, 6, 7, 8},
+{0, 5, 5, 1, 1, 5, 5, 5},
+{0, 2, 1, 4, 1, 1, 7, 8},
+{1, 1, 3, 4, 5, 1, 1, 8},
+{1, 2, 3, 4, 5, 6, 1, 1},
+{1, 1, 5, 4, 5, 6, 7, 1},
+{1, 1, 1, 5, 5, 5, 7, 8},
+{1, 1, 1, 1, 5, 5, 7, 1},
+{1, 1, 1, 1, 1, 5, 1, 8},
+{5, 5, 1, 1, 1, 1, 5, 5},
+{1, 2, 3, 1, 1, 1, 1, 8},
+{1, 2, 3, 1, 1, 1, 1, 1},
+{1, 2, 1, 4, 5, 1, 1, 1},
+{1, 1, 3, 4, 5, 6, 1, 1},
+{1, 1, 1, 1, 1, 1, 1, 1},
+};
+
+int main (void) {
+
+// horizontal match research
+	for (k = 0; k < 18; k++) {
+		for (i = 0; i < 6; i++) {
+			int counter = 1;
+				for (j = 0; j < 2; j++) {
+					if (grid[k][i + j] == grid[k][i + j + 1] &&  grid[k][i + j + 1] != 0) {
+						counter = counter + 1;
+					}
+				}
+				if (counter == 3) {
+					printf("h. match\n"/*add to cluster list*/);
+				} else {
+					printf("no h. match\n");
+				}
+			}
+		}
+
+// vertical match research
+
+	for (k = 0; k < 8; k++) {
+		for (i = 0; i < 16; i++) {
+			counter = 1;
+				for (j = 0; j < 2; j++) {
+					if (grid[i + j][k] == grid[i + j + 1][k] && grid[i + j + 1][k] != 0) {
+						counter = counter + 1;
+					}
+				}
+				if (counter == 3) {
+					printf("v. match\n"/*add to cluster list*/);
+				} else {
+					printf("no v. match\n");
+				}
+			}
+		}
+
+// diagonal south/east match research
+
+	for (k = 0; k < 11; k++) {
+		for (i = 0; i < 6; i++) {
+			counter = 1;
+				for (j = 0; j < 2; j++) {
+					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
+						counter = counter + 1;
+					}
+				}
+					if (counter == 3) {
+						printf("dse. match\n"/*add to cluster list*/);
+				} else {
+					printf("no dse. match\n");
+				}
+
+	}
+
+	}
+// -- bottom left corner
+	z = 5;
+	for (k = 11; k < 16; k++) {
+	for (i = 0; i < z; i++) {
+		counter = 1;
+						for (j = 0; j < 2; j++) {
+					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
+						counter = counter + 1;
+					}
+				}
+									if (counter == 3) {
+						printf("dse. match\n"/*add to cluster list*/);
+				} else {
+					printf("no dse. match\n");
+				}
+	}
+	z = z - 1;
+}
+
+// -- top right corner
+	z = 5;
+	for (k = 1; k < 6; k++) {
+	for (i = 0; i < z; i++) {
+		counter = 1;
+						for (j = 0; j < 2; j++) {
+					if (grid[i + j][i + j + k] == grid[i + j + 1][i + j + 1 + k] && grid[i + j + 1][i + j + 1 + k] != 0) {
+						counter = counter + 1;
+					}
+				}
+									if (counter == 3) {
+						printf("dse. match\n"/*add to cluster list*/);
+				} else {
+					printf("no dse. match\n");
+				}
+	}
+	z = z - 1;
+}
+
+// diagonal north/east match research
+
+	for (k = 0; k < 11; k++) {
+		for (i = 0; i < 6; i++) {
+			counter = 1;
+				for (j = 0; j < 2; j++) {
+					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
+						counter = counter + 1;
+					}
+				}
+					if (counter == 3) {
+						printf("dse. match\n"/*add to cluster list*/);
+				} else {
+					printf("no dse. match\n");
+				}
+
+	}
+
+	}
+// -- bottom left corner
+	z = 5;
+	for (k = 11; k < 16; k++) {
+	for (i = 0; i < z; i++) {
+		counter = 1;
+						for (j = 0; j < 2; j++) {
+					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
+						counter = counter + 1;
+					}
+				}
+									if (counter == 3) {
+						printf("dse. match\n"/*add to cluster list*/);
+				} else {
+					printf("no dse. match\n");
+				}
+	}
+	z = z - 1;
+}
+
+// -- top right corner
+	z = 5;
+	for (k = 1; k < 6; k++) {
+	for (i = 0; i < z; i++) {
+		counter = 1;
+						for (j = 0; j < 2; j++) {
+					if (grid[i + j][i + j + k] == grid[i + j + 1][i + j + 1 + k] && grid[i + j + 1][i + j + 1 + k] != 0) {
+						counter = counter + 1;
+					}
+				}
+									if (counter == 3) {
+						printf("dse. match\n"/*add to cluster list*/);
+				} else {
+					printf("no dse. match\n");
+				}
+	}
+	z = z - 1;
+}
+
+}
