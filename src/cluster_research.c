@@ -7,12 +7,12 @@
 /********************
  * tile combos	    *
  * empty	= 0 *
- * pink		= 6 *
  * green	= 1 *
  * purple	= 2 *
  * yellow	= 3 *
  * orange	= 4 *
  * cyan		= 5 *
+ * pink		= 6 *
  * ******************/
 #include <stdio.h>
 
