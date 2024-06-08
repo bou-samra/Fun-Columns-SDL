@@ -1,8 +1,8 @@
-/***************************************
- ** cluster research routine          **
- ** jc 'al-khwarizmi' bou-samra       **
- ** paragonsoft 08/06/24              **
- ***************************************/
+/****************************************
+ ** cluster detection research routine **
+ ** jc 'al-khwarizmi' bou-samra        **
+ ** paragonsoft 08/06/24               **
+ ****************************************/
 #include <stdio.h>
 
 int i, j, k, x, y, z;
