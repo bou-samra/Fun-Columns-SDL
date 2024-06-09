@@ -136,18 +136,18 @@ int main (void) {
 
 // diagonal north/east match research
 
-	for (k = 0; k < 11; k++) {
+	for (k = 17; k > 6; k--) {
 		for (i = 0; i < 6; i++) {
 			counter = 1;
 				for (j = 0; j < 2; j++) {
-					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
+					if (grid[k - i - j][i + j] == grid[k - i - j - 1][i + j + 1] && grid[k - i - j - 1][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
 				}
 					if (counter == 3) {
-						printf("dse. match\n"/*add to cluster list*/);
+						printf("dne. match\n"/*add to cluster list*/);
 				} else {
-					printf("no dse. match\n");
+					printf("no dne. match\n");
 				}
 
 	}
@@ -159,12 +159,12 @@ int main (void) {
 	for (i = 0; i < z; i++) {
 		counter = 1;
 						for (j = 0; j < 2; j++) {
-					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
+					if (grid[i + j + k][i + j] == grid[i + j + 1 + k][i + j + 1] && grid[i + j + 1 + k][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
 				}
 									if (counter == 3) {
-						printf("dse. match\n"/*add to cluster list*/);
+						printf("dne. match\n"/*add to cluster list*/);
 				} else {
 					printf("no dse. match\n");
 				}
@@ -183,9 +183,9 @@ int main (void) {
 					}
 				}
 									if (counter == 3) {
-						printf("dse. match\n"/*add to cluster list*/);
+						printf("dne. match\n"/*add to cluster list*/);
 				} else {
-					printf("no dse. match\n");
+					printf("no dne. match\n");
 				}
 	}
 	z = z - 1;
