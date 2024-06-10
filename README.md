@@ -28,8 +28,8 @@ The aim of this project is to implement the original Free Tools Association (FTA
 * Hi score routine
 * Points allocation routine
 * No more moves/game over routine
-* Block removalreposition routine
-* Block tile cycling
+* Block removal / reposition routine
+* Tile cycling
 * Random block selection
 * Game loop timing
 * Intro page / music
