@@ -10,7 +10,8 @@ The aim of this project is to implement the original Free Tools Association (FTA
 * 04/05/2024 - Foundation code
 
 ## Compilation
-type the following commands:
+* make sure to install SDL development and SDL Image Development libraries
+* type the following command:
 
 `make`
 
@@ -26,9 +27,13 @@ type the following commands:
 * Cluster detection research routine (in progress)
 * Hi score routine
 * Points allocation routine
-* No more moves routine
-* Block reposition routine
-* Timing
+* No more moves/game over routine
+* Block removalreposition routine
+* Block tile cycling
+* Random block selection
+* Game loop timing
+* Intro page / music
+* Game play music / sound fx
 * There may be more that I have missed above
 
 ## Author(s)
