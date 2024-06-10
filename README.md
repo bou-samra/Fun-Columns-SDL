@@ -27,7 +27,7 @@ The aim of this project is to implement the original Free Tools Association (FTA
 * Cluster detection research routine (in progress)
 * Hi score routine
 * Points allocation routine
-* No more moves/game over routine
+* No more moves / game over routine
 * Block removal / reposition routine
 * Tile cycling
 * Random block selection
