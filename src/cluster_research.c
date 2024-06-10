@@ -186,7 +186,6 @@ int main (void) {
 					if (grid[17 - i - l][i + k + 1 + l] == grid[17 - i - 1 - l][i + k + 2 + l] && grid[17 - i -1 - l][i + k + 2 + l] != 0) {
 						counter = counter + 1;
 					}
-//			printf("[y1: %i], [x1: %i] [y2: %i] [x2: %i]\n", 17-i-l, i+k+1+l, 17-i-1-l, i+k+2+l);
 				}
 									if (counter == 3) {
 						printf("dne. match\n"/*add to cluster list*/);
