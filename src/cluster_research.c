@@ -16,7 +16,7 @@
  * ******************/
 #include <stdio.h>
 
-int i, j, k, x, y, z;
+int i, j, k, x, y, z, l;
 int counter = 0;
 int matches [100][7] = {};
 int grid [18][8] = {
@@ -153,7 +153,7 @@ int main (void) {
 	}
 
 	}
-// -- bottom left corner
+// -- top left left corner
 	z = 5;
 	for (k = 6; k > 0; k--) {
 	for (i = 0; i < z; i++) {
@@ -172,15 +172,18 @@ int main (void) {
 	z = z - 1;
 }
 
-// -- top right corner
+// -- bottom right corner
 	z = 5;
-	for (k = 1; k < 6; k++) {
+	k = 0;
+	l = 0;
+	for (j = 17; j > 11; j--) {
 	for (i = 0; i < z; i++) {
 		counter = 1;
-						for (j = 0; j < 2; j++) {
-					if (grid[i + j][i + j + k] == grid[i + j + 1][i + j + 1 + k] && grid[i + j + 1][i + j + 1 + k] != 0) {
+						for (l = 0; l < 2; l++) {
+					if (grid[17 - i - l][i + k + 1 + l] == grid[17 - i - 1 - l][i + k + 2 + l] && grid[17 - i -1][i + k + 2] != 0) {
 						counter = counter + 1;
 					}
+//			printf("[y1: %i], [x1: %i] [y2: %i] [x2: %i]\n", 17-i-l, i+k+1+l, 17-i-1-l, i+k+2+l);
 				}
 									if (counter == 3) {
 						printf("dne. match\n"/*add to cluster list*/);
@@ -189,6 +192,7 @@ int main (void) {
 				}
 	}
 	z = z - 1;
+	k++;
 }
 
 }
