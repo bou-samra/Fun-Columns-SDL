@@ -2,6 +2,9 @@
  ** cluster detection research routine **
  ** jc 'al-khwarizmi' bou-samra        **
  ** paragonsoft 08/06/24               **
+ ** this routine uses brute force      **
+ ** to find clusters and thus is       **
+ ** probably not very efficient        **
  ****************************************/
 
 /********************
