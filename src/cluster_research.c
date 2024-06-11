@@ -102,39 +102,39 @@ int main (void) {
 // -- bottom left corner
 	z = 5;
 	for (k = 11; k < 16; k++) {
-	for (i = 0; i < z; i++) {
-		counter = 1;
-						for (j = 0; j < 2; j++) {
+		for (i = 0; i < z; i++) {
+			counter = 1;
+				for (j = 0; j < 2; j++) {
 					if (grid[i + j+k][i + j] == grid[i + j + 1+k][i + j + 1] && grid[i + j + 1+k][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
 				}
-									if (counter == 3) {
-						printf("dse. match\n"/*add to cluster list*/);
+				if (counter == 3) {
+					printf("dse. match\n"/*add to cluster list*/);
 				} else {
 					printf("no dse. match\n");
 				}
-	}
-	z = z - 1;
+		}
+		z = z - 1;
 	}
 
 // -- top right corner
 	z = 5;
 	for (k = 1; k < 6; k++) {
-	for (i = 0; i < z; i++) {
-		counter = 1;
-						for (j = 0; j < 2; j++) {
+		for (i = 0; i < z; i++) {
+			counter = 1;
+				for (j = 0; j < 2; j++) {
 					if (grid[i + j][i + j + k] == grid[i + j + 1][i + j + 1 + k] && grid[i + j + 1][i + j + 1 + k] != 0) {
 						counter = counter + 1;
 					}
 				}
-									if (counter == 3) {
-						printf("dse. match\n"/*add to cluster list*/);
+				if (counter == 3) {
+					printf("dse. match\n"/*add to cluster list*/);
 				} else {
 					printf("no dse. match\n");
 				}
-	}
-	z = z - 1;
+		}
+		z = z - 1;
 	}
 
 // diagonal north/east match research
@@ -147,32 +147,32 @@ int main (void) {
 						counter = counter + 1;
 					}
 				}
-					if (counter == 3) {
-						printf("dne. match\n"/*add to cluster list*/);
+				if (counter == 3) {
+					printf("dne. match\n"/*add to cluster list*/);
 				} else {
 					printf("no dne. match\n");
 				}
 
-	}
+		}
 
 	}
 // -- top left left corner
 	z = 5;
 	for (k = 6; k > 0; k--) {
-	for (i = 0; i < z; i++) {
-		counter = 1;
-						for (j = 0; j < 2; j++) {
-					if (grid[k - i - j][i + j] == grid[k - i - j - 1][i + j + 1] && grid[k - i - j - 1][i + j + 1] != 0) {
-						counter = counter + 1;
-					}
+		for (i = 0; i < z; i++) {
+			counter = 1;
+			for (j = 0; j < 2; j++) {
+				if (grid[k - i - j][i + j] == grid[k - i - j - 1][i + j + 1] && grid[k - i - j - 1][i + j + 1] != 0) {
+					counter = counter + 1;
 				}
-									if (counter == 3) {
-						printf("dne. match\n"/*add to cluster list*/);
-				} else {
-					printf("no dne. match\n");
-				}
-	}
-	z = z - 1;
+			}
+			if (counter == 3) {
+				printf("dne. match\n"/*add to cluster list*/);
+			} else {
+				printf("no dne. match\n");
+			}
+		}
+		z = z - 1;
 	}
 
 // -- bottom right corner
