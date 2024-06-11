@@ -19,9 +19,8 @@
  * ******************/
 #include <stdio.h>
 
-int i, j, k, x, y, z, l;
+int i, j, k, z;
 int counter = 0;
-int matches [100][7] = {};
 int grid [18][8] = {
 {0, 1, 0, 0, 0, 0, 0, 0},
 {0, 1, 1, 4, 5, 6, 7, 8},
