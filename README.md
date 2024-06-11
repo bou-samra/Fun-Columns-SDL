@@ -1,7 +1,10 @@
 # Fun Columns SDL
 
 ## Description:
-The aim of this project is to implement the original Free Tools Association (FTA) version of their Fun Columns game in SDL
+The aim of this project is to implement the original Free Tools Association (FTA) version of their Fun Columns game in SDL.
+
+For those who may not have heard of the Free Tools Association (FTA) and their influence within the Apple IIGS community many
+decades ago, a [website](http://www.freetoolsassociation.com/) is still maintained by Olivier Goguel (one of the original members of the group).
 
 <b>Please Note:</b> This game is not in a playable state yet, you can compile and run though.
 
@@ -10,8 +13,8 @@ The aim of this project is to implement the original Free Tools Association (FTA
 * 04/05/2024 - Foundation code
 
 ## Compilation
-* make sure to install SDL development and SDL Image Development libraries
-* type the following command:
+* Make sure to install SDL-development and SDL-Image-Development libraries
+* Type the following command and push enter:
 
 `make`
 
@@ -24,13 +27,14 @@ The aim of this project is to implement the original Free Tools Association (FTA
 
 ## Todo
 * Still a Work In Progress
-* Cluster detection research routine (in progress)
-* Hi score routine
+* Cluster detection research routine (in progress - almost done)
+* Hi scores routine
 * Points allocation routine
 * No more moves / game over routine
-* Block removal / reposition routine
-* Tile cycling
-* Random block selection
+* Block detection / removal / realignment
+* Block rotation / xy movement / drop
+* Next Piece
+* Random block selection / position
 * Game loop timing
 * Intro page / music
 * Game play music / sound fx
