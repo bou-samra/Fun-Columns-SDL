@@ -177,13 +177,11 @@ int main (void) {
 
 // -- bottom right corner
 	z = 5;
-	k = 0;
-	l = 0;
-	for (j = 17; j > 11; j--) {
+	for (k = 17; k > 11; k--) {
 		for (i = 0; i < z; i++) {
 			counter = 1;
-			for (l = 0; l < 2; l++) {
-				if (grid[17 - i - l][i + k + 1 + l] == grid[17 - i - 1 - l][i + k + 2 + l] && grid[17 - i -1 - l][i + k + 2 + l] != 0) {
+			for (j = 0; j < 2; j++) {
+				if (grid[17 - i - j][18 - k + i + j] == grid[16 - i - j][19 - k + i + j] && grid[16 - i - j][19 - k + i + j] != 0) {
 					counter = counter + 1;
 				}
 			}
@@ -194,7 +192,5 @@ int main (void) {
 			}
 		}
 		z = z - 1;
-		k++;
 	}
-
 }
