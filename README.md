@@ -31,7 +31,7 @@ decades ago, a [website](http://www.freetoolsassociation.com/) is still maintain
 * Hi scores routine
 * Points allocation routine
 * No more moves / game over routine
-* Block detection / removal / realignment
+* Cluster detection / removal / realignment
 * Block rotation / xy movement / drop
 * Next Piece
 * Random block selection / position
