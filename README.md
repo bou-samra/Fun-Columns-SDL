@@ -33,8 +33,8 @@ decades ago, a [website](http://www.freetoolsassociation.com/) is still maintain
 * No more moves / game over routine
 * Cluster detection / removal / realignment
 * Block rotation / xy movement / drop
-* Next Piece
-* Random block selection / position
+* Next piece preview
+* Random block selection / initial y position
 * Game loop timing
 * Intro page / music
 * Game play music / sound fx
