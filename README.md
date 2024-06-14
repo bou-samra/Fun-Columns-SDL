@@ -6,7 +6,8 @@ The aim of this project is to implement the original Free Tools Association (FTA
 For those who may not have heard of the Free Tools Association (FTA) and their influence within the Apple IIGS community many
 decades ago, a [website](http://www.freetoolsassociation.com/) is still maintained by Olivier Goguel (one of the original members of the group).
 
-<b>Please Note:</b> This game is not in a playable state yet, you can compile and run though.
+<b>Please Note:</b> This source code is very much in a state of flux and is currently a bit of a mess.
+I will provide updates as best as I can :smile:
 
 ## Change-log:
 
