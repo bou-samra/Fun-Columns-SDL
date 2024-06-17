@@ -14,8 +14,13 @@ I will provide updates as best as I can :smile:
 * 04/05/2024 - Foundation code
 
 ## Compilation
-* Make sure to install SDL-development and SDL-Image-Development libraries
-* Type the following command and push enter:
+* Make sure to install the followwing libraries
+* 1. SDL development
+  2. SDL Image development
+  3. Sodium development
+* Type the following commands and push enter:
+
+`cd src`
 
 `make`
 
