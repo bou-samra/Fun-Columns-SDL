@@ -14,14 +14,14 @@ I will provide updates as best as I can :smile:
 * 04/05/2024 - Foundation code
 
 ## Compilation
-* Make sure to install the followwing libraries
-* 1. SDL development
-  2. SDL Image development
-  3. Sodium development
-* Type the following commands and push enter:
+* Make sure to install the followwing development libraries
+  1. SDL2
+  2. SDL_image 2.0
+  3. libsodium
+ 
+* Type the following commands:
 
-`cd src`
-
+`cd src`<br>
 `make`
 
 ## Screenshot
