@@ -33,14 +33,14 @@ I will provide updates as best as I can :smile:
 
 ## Todo
 * Still a Work In Progress
-* Cluster detection research routine (in progress - almost done)
+* Cluster detection research (done) / removal / realignment
+* Display updated board (done)
 * Hi scores routine
 * Points allocation routine
 * No more moves / game over routine
-* Cluster detection / removal / realignment
 * Block rotation / xy movement / drop
-* Next piece preview
-* Random block selection / initial y position
+* Next piece preview (in progress)
+* Random block selection / initial y position (in progress)
 * Game loop timing
 * Intro page / music
 * Game play music / sound fx
