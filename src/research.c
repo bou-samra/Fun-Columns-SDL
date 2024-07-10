@@ -8,7 +8,7 @@
  ****************************************/
 
 #include <stdio.h>
-#include "research.h"
+#include "game.h"
 
 int reserach (void) {
 
