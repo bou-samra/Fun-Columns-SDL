@@ -40,10 +40,10 @@ I will provide updates as best as I can :smile:
 * No more moves / game over routine
 * Block tile cycling / XY movement / Drop
 * Next piece preview (in progress)
-* Random block selection / initial y position (in progress)
+* Random block selection / initial Y position (in progress)
 * Game loop timing
 * Intro page / music
-* Game play music / sound fx
+* Game play music / sound FX
 * There may be more that I have missed above
 
 ## Author(s)
