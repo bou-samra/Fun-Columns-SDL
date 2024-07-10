@@ -38,7 +38,7 @@ I will provide updates as best as I can :smile:
 * Hi scores routine
 * Points allocation routine
 * No more moves / game over routine
-* Block rotation / xy movement / drop
+* Block tile cycling / XY movement / Drop
 * Next piece preview (in progress)
 * Random block selection / initial y position (in progress)
 * Game loop timing
