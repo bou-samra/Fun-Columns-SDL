@@ -42,7 +42,7 @@ I will provide updates as best as I can :smile:
 * Next piece preview (in progress)
 * Random block selection / initial Y position (in progress)
 * Game loop timing
-* Intro page / music
+* Intro page / Music
 * Game play music / Sound FX
 * There may be more that I have missed above
 
