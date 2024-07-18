@@ -9,6 +9,10 @@
 
 int main (void) {
 
+	if (sodium_init() < 0) {			// initialise sodium
+		printf("error\n");			// -1 = failure
+	}
+
 	initSDL ();
 	init_gfx();
 
