@@ -316,17 +316,17 @@ int Ren_game(void) {
 	SDL_RenderFillRect(sr, &main_back);			// background
 	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
 	SDL_RenderDrawRect(sr, &main_trim);			// trim
-//	if(tile_c > 17) {
-//	    tile_c = 0;
-//	}
+	display_grid();
+	if(tile_c > 17) {
+	    tile_c = 0;
+	}
 
-//	for (i = 0; i < 1; i++) {
-//		tile_dst.x = tile_pos;
-//		tile_dst.y = 11 * tile_c + 1;
-//		SDL_RenderCopy(sr, texture, &tile_src, &tile_dst);
-//		tile_c++;
-//		}
-display_grid();
+	for (i = 0; i < 1; i++) {
+		tile_dst.x = tile_pos;
+		tile_dst.y = 11 * tile_c + 1;
+		SDL_RenderCopy(sr, texture, &tile_src, &tile_dst);
+		tile_c++;
+		}
 	return 0;
 }
 
