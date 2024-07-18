@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <math.h>
+#include <stdbool.h>
+#include <sodium.h>
+#include <stdint.h>
 #include "sprite_sheet.h"
 #include "text.h"
 #include "ascii.h"
@@ -9,6 +16,7 @@
 
 enum gradient {Blue = 0, Green = 10, Red = 20, Yellow = 30, Magenta = 40, Cyan = 50, Grey = 60} colour = 0;
 
+// ============= funcs
 int display_grid();
 int backdrop (enum gradient colour);
 int check_key(void);
@@ -27,6 +35,10 @@ int initSDL (void);		// initialise SDL
 int shutdownSDL (void);		// shutdown SDL
 int render (void);		// render output
 int init_gfx (void);		// create texture
+int new_column();
+int disp_column(int row, int col);
+
+// ============== vars
 int i, j, k, x, y, z, l;  	// index variables
 int gamep = 0;
 int tile_c;
@@ -36,6 +48,12 @@ bool next_p = false;		// next piece flag
 bool quit = false;		// quit flag
 bool main_m = false;
 bool pause_f = 0;
+int colcnt[8]= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
+int totcol_avail = 0;			// count bits in which column
+int actual_col = 0;		// actual column in game panel
+int randc = 0;
+
+// =====================================
 
 SDL_Window *window = NULL;
 SDL_Renderer *sr;
