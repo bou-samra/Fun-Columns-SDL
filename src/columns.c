@@ -4,13 +4,6 @@
  ** JC 'Al-Khwarizmi' Bou-Samra     **
  ** Paragon Software 04/05/2024  -  **
  *************************************/
-
-#include <stdio.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <math.h>
-#include <stdbool.h>
-
 #include "game.h"
 // ============= Main =============
 
