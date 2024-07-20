@@ -12,6 +12,7 @@ I will provide updates as best as I can :smile:
 ## Change-log:
 
 * 04/05/2024 - Foundation code
+* 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life
 
 ## Compilation
 * Make sure to install the followwing development libraries
