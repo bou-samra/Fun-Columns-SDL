@@ -36,7 +36,7 @@ I will provide updates as best as I can :smile:
 * Cluster (removal / realignment)
 * Hi scores routine
 * Points allocation routine
-* Block tile cycling / XY Block movement / Drop
+* Brick (tile cycling / XY movement / drop)
 * Next piece preview (in progress)
 * Game loop timing
 * Intro (page / music)
