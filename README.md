@@ -38,16 +38,16 @@ I will provide updates as best as I can :smile:
 * Points allocation routine
 * Brick (tile cycling / XY movement / drop)
 * Next piece preview (in progress)
-* Game loop timing
+* Game (loop / timing)
 * Intro (page / music)
 * Game play (music / Sound FX)
 
 ## Done
 * Cluster detection research
 * Display updated board
-* No more moves / Game over routine
+* No more moves / Game over
 * Random brick selection
-* New/next brick random column select
+* Random column selection
 * Backdrop colour selection
 * About screen
 * Menu screen
