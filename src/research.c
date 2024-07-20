@@ -7,9 +7,6 @@
  ** thus probably not very efficient   **
  ****************************************/
 
-#include <stdio.h>
-#include "game.h"
-
 int reserach (void) {
 
 // horizontal research
