@@ -33,20 +33,21 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* Still a Work In Progress
-* Cluster detection research (done) / removal / realignment
-* Display updated board (done)
+* CLuster (removal / realignment)
 * Hi scores routine
 * Points allocation routine
-* No more moves / Game over routine (done)
 * Block tile cycling / XY Block movement / Drop
 * Next piece preview (in progress)
-* Random brick selection (done)
-* New/next brick column select (done)
 * Game loop timing
-* Intro page / Music
-* Game play music / Sound FX
-* There may be more that I have missed above
+* Intro (page / music)
+* Game play (music / Sound FX)
+
+## Done
+* Cluster detection research
+* Display updated board
+* No more moves / Game over routine
+* Random brick selection
+* New/next brick random column select
 
 ## Author(s)
 * IIGS Version: FTA (1990/91)
