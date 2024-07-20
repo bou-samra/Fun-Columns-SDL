@@ -51,7 +51,7 @@ I will provide updates as best as I can :smile:
 * Backdrop colour selection
 * About screen
 * Menu screen
-* Info Sscrren
+* Info screen
 
 ## Author(s)
 * IIGS Version: FTA (1990/91)
