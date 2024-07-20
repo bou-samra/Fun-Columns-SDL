@@ -35,9 +35,10 @@ int initSDL (void);		// initialise SDL
 int shutdownSDL (void);		// shutdown SDL
 int render (void);		// render output
 int init_gfx (void);		// create texture
-int new_column();
-int disp_column(int row, int col);
-int new_brick();
+int new_column();		// select random column to drop brick into
+int disp_column(int row, int col);	// update column board
+int new_brick(void);		// choose current/preview random brick
+int research(void);		// cluster detection
 
 // ============== vars
 int i, j, k, x, y, z, l;  	// index variables
