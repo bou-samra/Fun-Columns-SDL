@@ -37,6 +37,7 @@ int render (void);		// render output
 int init_gfx (void);		// create texture
 int new_column();
 int disp_column(int row, int col);
+int new_brick();
 
 // ============== vars
 int i, j, k, x, y, z, l;  	// index variables
