@@ -33,7 +33,7 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* CLuster (removal / realignment)
+* Cluster (removal / realignment)
 * Hi scores routine
 * Points allocation routine
 * Block tile cycling / XY Block movement / Drop
