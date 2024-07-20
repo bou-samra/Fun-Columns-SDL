@@ -48,6 +48,10 @@ I will provide updates as best as I can :smile:
 * No more moves / Game over routine
 * Random brick selection
 * New/next brick random column select
+* Backdrop colour selection
+* About screen
+* Menu screen
+* Info Sscrren
 
 ## Author(s)
 * IIGS Version: FTA (1990/91)
