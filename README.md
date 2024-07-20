@@ -15,7 +15,7 @@ I will provide updates as best as I can :smile:
 * 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life
 
 ## Compilation
-* Make sure to install the followwing development libraries
+* Make sure to install the following development libraries
   1. SDL2
   2. SDL_image 2.0
   3. libsodium
@@ -34,16 +34,17 @@ I will provide updates as best as I can :smile:
 
 ## Todo
 * Cluster (removal / realignment)
-* Hi scores routine
+* High scores routine
 * Points allocation routine
 * Brick (tile cycling / XY movement / drop)
 * Next piece preview (in progress)
 * Game (loop / timing)
 * Intro (page / music)
 * Game play (music / Sound FX)
+* Pause
 
 ## Done
-* Cluster detection research
+* Cluster detection
 * Display updated board
 * No more moves / Game over
 * Random brick selection
