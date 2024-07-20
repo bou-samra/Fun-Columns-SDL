@@ -37,10 +37,11 @@ I will provide updates as best as I can :smile:
 * Display updated board (done)
 * Hi scores routine
 * Points allocation routine
-* No more moves / Game over routine
+* No more moves / Game over routine (done)
 * Block tile cycling / XY Block movement / Drop
 * Next piece preview (in progress)
-* Random block selection / New block initial Y position (in progress)
+* Random brick selection (done)
+* New/next brick column select (done)
 * Game loop timing
 * Intro page / Music
 * Game play music / Sound FX
