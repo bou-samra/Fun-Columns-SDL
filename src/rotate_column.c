@@ -1,3 +1,4 @@
+// rotate tiles in brick by 1
 int rotate_col (void)
 {
 	int temp;
