@@ -36,7 +36,7 @@ I will provide updates as best as I can :smile:
 * Cluster (removal / realignment)
 * High scores routine
 * Points allocation routine
-* Brick (tile cycling / XY movement / drop)
+* Brick (left-tight movement / drop)
 * Next piece preview (in progress)
 * Game (loop / timing)
 * Intro (page / music)
@@ -48,6 +48,7 @@ I will provide updates as best as I can :smile:
 * Display updated board
 * No more moves / Game over
 * Random brick selection
+* Brick (tile rotation)
 * Random column selection
 * Backdrop colour selection
 * About screen
