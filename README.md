@@ -36,7 +36,7 @@ I will provide updates as best as I can :smile:
 * Cluster (removal / realignment)
 * High scores routine
 * Points allocation routine
-* Brick (left-tight movement / drop)
+* Brick (left-right movement / drop)
 * Next piece preview (in progress)
 * Game (loop / timing)
 * Intro (page / music)
