@@ -42,6 +42,7 @@ I will provide updates as best as I can :smile:
 * Intro (page / music)
 * Game play (music / Sound FX)
 * Pause
+* Invert backdrop gradient (ctrl + X)
 
 ## Done
 * Cluster detection
