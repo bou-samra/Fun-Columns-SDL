@@ -51,6 +51,7 @@ I will provide updates as best as I can :smile:
 * Random brick selection
 * Brick (tile rotation)
 * Random column selection
+* Display in play brick
 * Backdrop colour selection
 * About screen
 * Menu screen
