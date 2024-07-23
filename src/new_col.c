@@ -20,3 +20,12 @@ int new_column() {
 		}
 	return actual_col;						// return the random column
 }
+
+
+//  display brick in relevant row/column of board array
+int disp_column(int row, int col)
+{
+	for (i = 0; i < 3; i++) {
+		grid[0][row + i][col] = tile_current[i];
+	}
+}
