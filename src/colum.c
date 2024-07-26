@@ -33,8 +33,8 @@ int disp_column(int row, int col) {
 // generate random 3 tile bricks for current and preview
 int new_brick () {
 	for (i = 0; i < 3; i++) {
-		tile_current[i] = randombytes_uniform(5) + 1;	// current piece
-		tile_next[i] = randombytes_uniform(5) + 1;	// next piece
+		tile_current[i] = randombytes_uniform(5) + 1;	// brick in play
+		tile_next[i] = randombytes_uniform(5) + 1;	// next brick preview
 	}
 	return 0;
 }
