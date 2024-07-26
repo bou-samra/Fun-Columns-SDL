@@ -4,7 +4,7 @@
 CFLAGS = -lm -lSDL2_image `sdl2-config --cflags --libs` -lsodium
 
 columns: columns.c
-	$(CC) -o columns columns.c $(CFLAGS)
+	$(CC) -o columns main.c $(CFLAGS)
 
 clean:
 	rm columns
