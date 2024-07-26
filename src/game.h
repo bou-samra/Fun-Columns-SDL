@@ -104,7 +104,7 @@ int tile_shp, tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 
 int display_tile();
 
-int grid [2][18][8]= {
+int grid [2][18][8] = {
 	{
 		{0, 0, 0, 0, 0, 0, 0, 0},		// colours
 		{0, 0, 0, 0, 0, 0, 0, 0},
@@ -156,8 +156,8 @@ int spr_x[5][6] = {
 {288, 300, 312, 324, 336, 348}, // ball 2
 };
 
-int mask[2] = {360, 372};
-int spr_y[6] = {0, 11, 22, 33, 44, 55};
+int mask[2]		= {360, 372};
+int spr_y[6]		= {0, 11, 22, 33, 44, 55};
  
 /********************
  * tile colours	    *
@@ -169,5 +169,5 @@ int spr_y[6] = {0, 11, 22, 33, 44, 55};
  * orange	= 5 *
  * cyan		= 6 *
  * ******************/
-int tile_current[3] = {0};
-int tile_next[3] = {0};
+int tile_current[3]	= {0};
+int tile_next[3]	= {0};
