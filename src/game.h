@@ -9,6 +9,8 @@
 #include "text.h"
 #include "ascii.h"
 
+// =============== defines
+
 #define DEBUG 1
 #define MAX 216
 #define SIZE 100
@@ -16,10 +18,11 @@
 
 enum gradient {Blue = 0, Green = 10, Red = 20, Yellow = 30, Magenta = 40, Cyan = 50, Grey = 60} colour = 0;
 
-// ============= funcs
-int display_grid ();
-int backdrop (enum gradient colour);
-int check_key (void);
+// ============= functions
+
+int display_grid ();		// refresh game board
+int backdrop (enum gradient colour);	// display backdrop gradient
+int check_key (void);		// poll for key events
 int Ren_restart (void);		// game over/restart
 int Ren_pause (void);		// pause
 int Ren_game (void);		// render game
@@ -39,8 +42,10 @@ int new_column ();		// select random column to drop brick into
 int disp_column (int row, int col);	// update column board
 int new_brick (void);		// choose current/preview random brick
 int research (void);		// cluster detection
+int display_tile ();		// display current column in play
 
 // ============== vars
+
 int i, j, k, x, y, z, l;  	// index variables
 int gamep		= 0;
 int tile_c;
@@ -55,14 +60,17 @@ int totcol_avail	= 0;		// count bits in which column
 int actual_col		= 0;		// actual column in game panel
 int randc		= 0;
 
-// =====================================
+// ============== SDL structures
 
-SDL_Window *window = NULL;
+SDL_Window *window	= NULL;
 SDL_Renderer *sr;
 SDL_Event event;
 SDL_RWops* rwops_new;
 SDL_Surface* image;
 SDL_Texture * texture;
+
+// =============== rectangle coords 
+
 SDL_Rect logo_src	= { 384, 0, 78, 54 };
 SDL_Rect logo_dst	= { 230, 136, 78, 54 };
 //SDL_Rect char_src	= {463, 0 , 7 , 5};
@@ -79,14 +87,15 @@ SDL_Rect tile_src	= {72, 0, 12, 11};
 SDL_Rect tile_dst	= {112, 1, 12, 11};
 SDL_Rect gameo_back	= {119, 93, 82, 13};
 
-/* window paramaters */
+// =============== window parms
+
 #define WIDTH 1280		// pixels
 #define HEIGHT 800		// pixels
 #define TITLE "FUN COLUMNS"	// window title
 
-/** board background colours **/
-int grad_tab[] = {
+// =============== board background colours
 
+int grad_tab[] = {
 	0x0000cc, 0x0000bb, 0x0000aa, 0x000099, 0x000088, 0x000077, 0x000066, 0x000055, 0x000044, 0x000033, // blue
 	0x00cc00, 0x00bb00, 0x00aa00, 0x009900, 0x008800, 0x007700, 0x006600, 0x005500, 0x004400, 0x003300, // green
 	0xcc0000, 0xbb0000, 0xaa0000, 0x990000, 0x880000, 0x770000, 0x660000, 0x550000, 0x440000, 0x330000, // red
@@ -96,13 +105,15 @@ int grad_tab[] = {
 	0xcccccc, 0xbbbbbb, 0xaaaaaa, 0x999999, 0x888888, 0x777777, 0x666666, 0x555555, 0x444444, 0x333333  // grey
 };
 
+// =============== tile variables (need to localise these variables)
+
 uint32_t tile_1, tile_2;
 int i, j, k, x, y, z;
 int counter		= 0;
 int col, row;
 int tile_shp, tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 
-int display_tile();
+// =============== game board array
 
 int grid [2][18][8] = {
 	{
@@ -147,7 +158,9 @@ int grid [2][18][8] = {
 	}
 };
 
-// sprite sheet top left coordinates (pink, green, purple, yellow, orange,cyan)
+// =============== sprite sheet top left coordinates
+// pink, green, purple, yellow, orange,cyan
+
 int spr_x[5][6] = {
 {0, 12, 24, 36, 48, 60},	// ball 1
 {72, 84, 96, 108, 120, 132},	// square 1
