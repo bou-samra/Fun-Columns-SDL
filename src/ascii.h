@@ -1,4 +1,9 @@
-int ascii [128][4] = { // BLK (X/Y, WHT (X/Y))
+/*********************************
+ ** ASCII spritemap X/Y coords **
+ *********************************
+// Black X,Y, White X,Y
+
+int ascii [128][4] = {
 {518, 49, 582, 49}, // NUL Null
 {518, 49, 582, 49}, // SOH Start Of Heading
 {518, 49, 582, 49}, // STX Start of TeXt
