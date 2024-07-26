@@ -26,11 +26,12 @@ int new_column() {
 int disp_column(int row, int col) {
 	for (i = 0; i < 3; i++) {
 		grid[0][row + i][col] = tile_current[i];
+		return 0;
 	}
 }
 
 // generate random 3 tile bricks for current and preview
-int new_brick {
+int new_brick () {
 	for (i = 0; i < 3; i++) {
 		tile_current[i] = randombytes_uniform(5) + 1;	// current piece
 		tile_next[i] = randombytes_uniform(5) + 1;	// next piece
