@@ -17,12 +17,12 @@
 enum gradient {Blue = 0, Green = 10, Red = 20, Yellow = 30, Magenta = 40, Cyan = 50, Grey = 60} colour = 0;
 
 // ============= funcs
-int display_grid();
+int display_grid ();
 int backdrop (enum gradient colour);
-int check_key(void);
-int Ren_restart(void);		// game over/restart
-int Ren_pause(void);		// pause
-int Ren_game(void);		// render game
+int check_key (void);
+int Ren_restart (void);		// game over/restart
+int Ren_pause (void);		// pause
+int Ren_game (void);		// render game
 int Ren_logo (void);		// display logo
 int Ren_about (void);		// display about
 int Ren_info (void);		// info screen
@@ -35,25 +35,25 @@ int initSDL (void);		// initialise SDL
 int shutdownSDL (void);		// shutdown SDL
 int render (void);		// render output
 int init_gfx (void);		// create texture
-int new_column();		// select random column to drop brick into
-int disp_column(int row, int col);	// update column board
-int new_brick(void);		// choose current/preview random brick
-int research(void);		// cluster detection
+int new_column ();		// select random column to drop brick into
+int disp_column (int row, int col);	// update column board
+int new_brick (void);		// choose current/preview random brick
+int research (void);		// cluster detection
 
 // ============== vars
 int i, j, k, x, y, z, l;  	// index variables
-int gamep = 0;
+int gamep		= 0;
 int tile_c;
-int tile_pos = 112;
+int tile_pos		= 112;
 
-bool next_p = false;		// next piece flag
-bool quit = false;		// quit flag
-bool main_m = false;
-bool pause_f = 0;
-int colcnt[8]= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
-int totcol_avail = 0;			// count bits in which column
-int actual_col = 0;		// actual column in game panel
-int randc = 0;
+bool next_p		= false;	// next piece flag
+bool quit		= false;	// quit flag
+bool main_m		= false;
+bool pause_f		= 0;
+int colcnt[8]		= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
+int totcol_avail	= 0;		// count bits in which column
+int actual_col		= 0;		// actual column in game panel
+int randc		= 0;
 
 // =====================================
 
@@ -63,21 +63,21 @@ SDL_Event event;
 SDL_RWops* rwops_new;
 SDL_Surface* image;
 SDL_Texture * texture;
-SDL_Rect logo_src = { 384, 0, 78, 54 };
-SDL_Rect logo_dst = { 230, 136, 78, 54 };
-//SDL_Rect char_src = {463, 0 , 7 , 5};
-//SDL_Rect char_dst = {22, 11 , 7 , 5};
-SDL_Rect main_back = {110, 0, 100, 200};
-SDL_Rect main_trim = {111, 0, 98, 200};
-SDL_Rect level_back = {231, 7, 76, 66};
-SDL_Rect level_trim = {230, 6, 78, 68};
-SDL_Rect next_back = {257, 86, 18, 37};
-SDL_Rect next_trim = {256, 85, 20, 39};
-SDL_Rect high_back = {13, 7, 76, 186};
-SDL_Rect high_trim = {12, 6, 78, 188};
-SDL_Rect tile_src = {72, 0, 12, 11};
-SDL_Rect tile_dst = {112, 1, 12, 11};
-SDL_Rect gameo_back = {119, 93, 82, 13};
+SDL_Rect logo_src	= { 384, 0, 78, 54 };
+SDL_Rect logo_dst	= { 230, 136, 78, 54 };
+//SDL_Rect char_src	= {463, 0 , 7 , 5};
+//SDL_Rect char_dst	= {22, 11 , 7 , 5};
+SDL_Rect main_back	= {110, 0, 100, 200};
+SDL_Rect main_trim	= {111, 0, 98, 200};
+SDL_Rect level_back	= {231, 7, 76, 66};
+SDL_Rect level_trim	= {230, 6, 78, 68};
+SDL_Rect next_back	= {257, 86, 18, 37};
+SDL_Rect next_trim	= {256, 85, 20, 39};
+SDL_Rect high_back	= {13, 7, 76, 186};
+SDL_Rect high_trim	= {12, 6, 78, 188};
+SDL_Rect tile_src	= {72, 0, 12, 11};
+SDL_Rect tile_dst	= {112, 1, 12, 11};
+SDL_Rect gameo_back	= {119, 93, 82, 13};
 
 /* window paramaters */
 #define WIDTH 1280		// pixels
@@ -98,7 +98,7 @@ int grad_tab[] = {
 
 uint32_t tile_1, tile_2;
 int i, j, k, x, y, z;
-int counter = 0;
+int counter		= 0;
 int col, row;
 int tile_shp, tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 
@@ -149,9 +149,9 @@ int grid [2][18][8]= {
 
 // sprite sheet top left coordinates (pink, green, purple, yellow, orange,cyan)
 int spr_x[5][6] = {
-{0, 12, 24, 36, 48, 60}, // ball 1
-{72, 84, 96, 108, 120, 132}, // square 1
-{144, 156, 168, 180, 192, 204}, // square 2
+{0, 12, 24, 36, 48, 60},	// ball 1
+{72, 84, 96, 108, 120, 132},	// square 1
+{144, 156, 168, 180, 192, 204},	// square 2
 {216, 228, 240, 252, 264, 276}, // square 3
 {288, 300, 312, 324, 336, 348}, // ball 2
 };
