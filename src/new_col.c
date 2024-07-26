@@ -23,9 +23,17 @@ int new_column() {
 
 
 //  display brick in relevant row/column of board array
-int disp_column(int row, int col)
-{
+int disp_column(int row, int col) {
 	for (i = 0; i < 3; i++) {
 		grid[0][row + i][col] = tile_current[i];
 	}
+}
+
+// generate random 3 tile bricks for current and preview
+new_brick {
+	for (i = 0; i < 3; i++) {
+		tile_current[i] = randombytes_uniform(5) + 1;	// current piece
+		tile_next[i] = randombytes_uniform(5) + 1;	// next piece
+	}
+	return 0;
 }
