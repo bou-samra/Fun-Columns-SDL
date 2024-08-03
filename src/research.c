@@ -6,15 +6,18 @@
  ** find cluster permutations and      **
  ** thus probably not very efficient   **
  ****************************************/
-
+#include <stdio.h>
+extern int grid [2][18][8];
+	
 int reserach (void) {
-
+	int z;
+	int counter;
 // horizontal research
 
-	for (k = 0; k < 18; k++) {
-		for (i = 0; i < 6; i++) {
+	for (int k = 0; k < 18; k++) {
+		for (int i = 0; i < 6; i++) {
 			int counter = 1;
-				for (j = 0; j < 2; j++) {
+				for (int j = 0; j < 2; j++) {
 					if (grid[0][k][i + j] == grid[0][k][i + j + 1] &&  grid[0][k][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
@@ -30,10 +33,10 @@ int reserach (void) {
 
 // vertical research
 
-	for (k = 0; k < 8; k++) {
-		for (i = 0; i < 16; i++) {
+	for (int k = 0; k < 8; k++) {
+		for (int i = 0; i < 16; i++) {
 			counter = 1;
-				for (j = 0; j < 2; j++) {
+				for (int j = 0; j < 2; j++) {
 					if (grid[0][i + j][k] == grid[0][i + j + 1][k] && grid[0][i + j + 1][k] != 0) {
 						counter = counter + 1;
 					}
@@ -48,10 +51,10 @@ int reserach (void) {
 
 // diagonal south/east  research
 
-	for (k = 0; k < 11; k++) {
-		for (i = 0; i < 6; i++) {
+	for (int k = 0; k < 11; k++) {
+		for (int i = 0; i < 6; i++) {
 			counter = 1;
-				for (j = 0; j < 2; j++) {
+				for (int j = 0; j < 2; j++) {
 					if (grid[0][i + j + k][i + j] == grid[0][i + j + k + 1][i + j + 1] && grid[0][i + j + k + 1][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
@@ -68,10 +71,10 @@ int reserach (void) {
 // -- bottom left corner
 
 	z = 5;
-	for (k = 11; k < 16; k++) {
-		for (i = 0; i < z; i++) {
+	for (int k = 11; k < 16; k++) {
+		for (int i = 0; i < z; i++) {
 			counter = 1;
-				for (j = 0; j < 2; j++) {
+				for (int j = 0; j < 2; j++) {
 					if (grid[0][i + j + k][i + j] == grid[0][i + j + k + 1][i + j + 1] && grid[0][i + j + k + 1][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
@@ -88,10 +91,10 @@ int reserach (void) {
 // -- top right corner
 
 	z = 5;
-	for (k = 1; k < 6; k++) {
-		for (i = 0; i < z; i++) {
+	for (int k = 1; k < 6; k++) {
+		for (int i = 0; i < z; i++) {
 			counter = 1;
-				for (j = 0; j < 2; j++) {
+				for (int j = 0; j < 2; j++) {
 					if (grid[0][i + j][i + j + k] == grid[0][i + j + 1][i + j + 1 + k] && grid[0][i + j + 1][i + j + 1 + k] != 0) {
 						counter = counter + 1;
 					}
@@ -107,10 +110,10 @@ int reserach (void) {
 
 // diagonal north/east match research
 
-	for (k = 17; k > 6; k--) {
-		for (i = 0; i < 6; i++) {
+	for (int k = 17; k > 6; k--) {
+		for (int i = 0; i < 6; i++) {
 			counter = 1;
-				for (j = 0; j < 2; j++) {
+				for (int j = 0; j < 2; j++) {
 					if (grid[0][k - i - j][i + j] == grid[0][k - i - j - 1][i + j + 1] && grid[0][k - i - j - 1][i + j + 1] != 0) {
 						counter = counter + 1;
 					}
@@ -126,10 +129,10 @@ int reserach (void) {
 // -- top left left corner
 
 	z = 5;
-	for (k = 6; k > 0; k--) {
-		for (i = 0; i < z; i++) {
+	for (int k = 6; k > 0; k--) {
+		for (int i = 0; i < z; i++) {
 			counter = 1;
-			for (j = 0; j < 2; j++) {
+			for (int j = 0; j < 2; j++) {
 				if (grid[0][k - i - j][i + j] == grid[0][k - i - j - 1][i + j + 1] && grid[0][k - i - j - 1][i + j + 1] != 0) {
 					counter = counter + 1;
 				}
@@ -146,10 +149,10 @@ int reserach (void) {
 // -- bottom right corner
 
 	z = 5;
-	for (k = 17; k > 11; k--) {
-		for (i = 0; i < z; i++) {
+	for (int k = 17; k > 11; k--) {
+		for (int i = 0; i < z; i++) {
 			counter = 1;
-			for (j = 0; j < 2; j++) {
+			for (int j = 0; j < 2; j++) {
 				if (grid[0][17 - i - j][18 - i + j + k] == grid[0][16 - i - j][19 - i + j + k] && grid[0][16 - i - j][19 - i + j + k] != 0) {
 					counter = counter + 1;
 				}
