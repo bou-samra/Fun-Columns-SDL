@@ -3,6 +3,7 @@
 
 extern int tile_current[3];
 extern int tile_next[3];
+extern int grid[2][18][8];
 int new_column ();		// select random column to drop brick into
 int disp_column (int row, int col);	// update column board
 int new_brick (void);		// choose current/preview random brick
