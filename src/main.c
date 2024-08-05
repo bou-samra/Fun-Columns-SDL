@@ -109,7 +109,7 @@ int render () {
 }
 
 // ============= init_gfx =============
-int init_gfx(void) {
+int init_gfx (void) {
 	rwops_new = SDL_RWFromMem(byn, sizeof(byn));
 	image = IMG_LoadPNG_RW(rwops_new);
 	texture = SDL_CreateTextureFromSurface(sr, image);
@@ -119,7 +119,7 @@ int init_gfx(void) {
 }
 
 // ============= wait for key =============
-int check_key(void) {
+int check_key (void) {
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_KEYDOWN) {
 		return 0;
