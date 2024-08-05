@@ -1,8 +1,5 @@
 #include <sodium.h>
 #include <stdio.h>
-extern int grid [2][18][8];
-extern int tile_current[3];
-extern int tile_next[3];
 
 /********************
  * tile colours	    *
