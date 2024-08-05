@@ -61,7 +61,7 @@ int grid [2][18][8] = {
 };
 	
 // randomly choose from remaining available columns to drop next brick into
-int new_column(void) {
+int new_column (void) {
 	int colcnt[8]		= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
 	int avl;				// general counter
 	int actual_col		= 0;		// actual absolute column in game panel
@@ -90,7 +90,7 @@ int new_column(void) {
 }
 
 //  display brick in relevant row/column of board array
-	int disp_column(int row, int col) {
+	int disp_column (int row, int col) {
 	for (int i = 0; i < 3; i++) {
 		grid[0][row + i][col] = tile_current[i];
 	}
