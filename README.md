@@ -13,6 +13,7 @@ I will provide updates as best as I can :smile:
 
 * 04/05/2024 - Foundation code
 * 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life
+* 12/08/2024 - code refactoring and tidyup
 
 ## Compilation
 * Make sure to install the following development libraries
@@ -36,13 +37,14 @@ I will provide updates as best as I can :smile:
 * Cluster (removal / realignment)
 * High scores routine
 * Points allocation routine
-* Brick (left-right movement / drop)
-* Next piece preview (in progress)
-* Game (loop / timing)
 * Intro (page / music)
 * Game play (music / Sound FX)
-* Pause
 * Invert backdrop gradient (ctrl + X)
+
+## In Progress
+* Next piece preview
+* Brick (left-right movement / drop)
+* Game (loop / timing / logic)
 
 ## Done
 * Cluster detection
@@ -56,6 +58,9 @@ I will provide updates as best as I can :smile:
 * About screen
 * Menu screen
 * Info screen
+* Pause
+* Restart
+* Keyboard input
 
 ## Author(s)
 * IIGS Version: FTA (1990/91)
