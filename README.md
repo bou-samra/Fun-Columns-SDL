@@ -63,5 +63,5 @@ I will provide updates as best as I can :smile:
 * Keyboard input
 
 ## Author(s)
-* IIGS Version: FTA (1990/91)
+* Apple IIGS Version: FTA (1990/91)
 * SDL Version: Jason Bou-Samra (2024)
