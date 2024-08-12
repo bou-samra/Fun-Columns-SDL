@@ -1,7 +1,8 @@
 #ifndef RENDER_H
 #define RENDER_H
 
-int display_grid ();		// refresh game board
+int update (void);
+int display_grid (void);		// refresh game board
 int Ren_restart (void);		// game over/restart
 int Ren_pause (void);		// pause
 int Ren_game (void);		// render game
@@ -14,4 +15,5 @@ int Ren_next (void);		// display next block/brick/piece
 int Ren_high (void);		// display high scores
 int Ren_line (char line[], int char_x, int char_y, int ln, int ll, bool col ); // parameter names in function prototypes not necessary 
 
+extern int row, col;
 #endif
