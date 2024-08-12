@@ -1,7 +1,5 @@
-/*********************************
- ** ASCII spritemap X/Y coords **
- *********************************/
-// Black X,Y, White X,Y
+///////// ASCII SPRITEMAP X/Y COORDS /////////
+// (Black XY, White XY)
 
 int ascii [128][4] = {
 {518, 49, 582, 49}, // NUL Null
