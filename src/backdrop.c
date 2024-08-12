@@ -1,9 +1,8 @@
-// ============= Backdrop =============
 #include <SDL2/SDL.h>
 extern SDL_Renderer *sr;
 enum gradient {Blue = 0, Green = 10, Red = 20, Yellow = 30, Magenta = 40, Cyan = 50, Grey = 60} colour = 0;
 
-// =============== board background colours
+////////////////// BOARD BACKDROP COLOURS //////////////////
 int backdrop (int colour) {
 int k, l;
 int grad_tab[] = {
