@@ -11,8 +11,8 @@
  * orange	= 5 *
  * cyan		= 6 *
  * ******************/
-int tile_current[3]	= {0};
-int tile_next[3]	= {0};
+int tile_current[3]	= {1, 2, 3};
+int tile_next[3]	= {5, 5, 5};
 int mask[2]		= {360, 372};
 int spr_y[6]		= {0, 11, 22, 33, 44, 55};
 
@@ -111,8 +111,7 @@ int new_column(void) {
 
 //////////////////////////////// ROTATE COLUMN //////////////////////////
 // rotate (cycle) tiles in brick by 1
-int rotate_col (void)
-{
+int rotate_col (void) {
 	int temp = tile_current[0];
 	tile_current[0] = tile_current[1];
 	tile_current[1] = tile_current[2];
@@ -122,14 +121,12 @@ int rotate_col (void)
 
 //////////////////////////////// MOVE HORIZONTALLY //////////////////////////
 // move brick left & right using cursor keys
-int move_horiz (void)
-{
+int move_horiz (void) {
 return 0;
 }
 
 ////////////////////////////////  MOVE VERTICALLY//////////////////////////
 // move brick down one place at a time
-int move_down (void)
-{
+int move_down (void) {
 return 0;
 }
