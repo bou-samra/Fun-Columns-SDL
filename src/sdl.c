@@ -13,9 +13,9 @@ SDL_Surface* image;
 SDL_Texture * texture;
 
 ///////////////////////// WINDOW PARMS /////////////////////////
-#define WIDTH 1280		// pixels
-#define HEIGHT 800		// pixels
-#define TITLE "FUN COLUMNS"	// window title
+#define WIDTH	1280		// pixels
+#define HEIGHT	800		// pixels
+#define TITLE	"FUN COLUMNS"	// window title
 
 /////////////////////// INITIALIZE SDL /////////////////////////
 int initSDL () {
@@ -40,7 +40,7 @@ if (window == NULL) {
 }
 
 /////////////////////// SHUTDOWN SDL /////////////////////////
-int shutdownSDL () {
+int shutdownSDL (void) {
 	SDL_DestroyWindow (window);	// free memory
 	SDL_Quit ();			// shutdown entire sdl sub-systems
 	return 0;
