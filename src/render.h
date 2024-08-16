@@ -2,7 +2,7 @@
 #define RENDER_H
 
 int update (void);
-int display_grid (void);		// refresh game board
+int display_grid (void);	// refresh game board
 int Ren_restart (void);		// game over/restart
 int Ren_pause (void);		// pause
 int Ren_game (void);		// render game
