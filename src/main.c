@@ -11,15 +11,16 @@
 #include <sodium.h>
 #include <math.h>
 #include <stdint.h>
+#include "research.h"
 #include "render.h"
 #include "column.h"
-//#include "research.h"
 #include "sdl.h"
 #include "events.h"
 
 ///////////////// MAIN MENU ////////////////////////////
 int menu(void) {
 	quit = false;
+	research();
 	Ren_menu();
 	while (quit == false) {
 		SDL_Delay(20);
@@ -59,8 +60,6 @@ int main (void) {
 
 	initSDL ();
 	init_gfx();
-	tile_current[0] = 1; tile_current[1] = 2; tile_current[2] = 3;
-	main_m = false;
 	menu();
 	shutdownSDL ();
 	return 0;
