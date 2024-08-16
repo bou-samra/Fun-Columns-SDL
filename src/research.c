@@ -9,7 +9,7 @@
 #include <stdio.h>
 extern int grid [2][18][8];
 	
-int reserach (void) {
+int research (void) {
 	int z;
 	int counter;
 // horizontal research
