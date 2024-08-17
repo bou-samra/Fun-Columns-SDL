@@ -53,10 +53,11 @@ I will provide updates as best as I can :smile:
 * Random column selection
 * Display in play brick
 * Backdrop Colour selection (**^C**) 
-* About screen
+* About screen (**A**)
 * Menu screen
-* Info screen
+* Info screen (**I**)
 * Pause (**P**)
+* Quit (**Q**)
 * Restart (**^R**)
 * Keyboard input
 * Invert backdrop gradient (**ctrl + X**)
