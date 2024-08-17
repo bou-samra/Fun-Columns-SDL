@@ -6,17 +6,15 @@
 #include "column.h"
 #include "sdl.h"
 
-extern int tile_pos;
-
 bool next_p		= false;	// next piece flag
 bool restart		= false;	// restart flag
-bool pause_f		= false;
+bool pause_f		= false;	// pause flag
 bool quit		= false;	// quit flag
+bool gradient_d		= false;	// gradient direction flag
 
 int handle_events () {
 
 //////////////////////////////// GAME LOOP //////////////////////////
-				
 	while (restart == false) {
 		Ren_game (); 
 		SDL_PollEvent (&event);
@@ -32,6 +30,7 @@ int handle_events () {
 			
 				if( event.key.keysym.sym == SDLK_x
 				&& (event.key.keysym.mod & KMOD_CTRL) != 0 ) {
+				gradient_d = !gradient_d;
 				break;
 			}				// invert gradient
 
@@ -82,17 +81,17 @@ int handle_events () {
 
 			if( event.key.keysym.sym == SDLK_s
 				&& (event.key.keysym.mod & KMOD_CTRL) != 0 ) {
+				tile_shp++;
+				if (tile_shp > 4) {
+					tile_shp = 0;
+				}
 				break;
 			}				// change tile design/pattern
 
 			if (event.key.keysym.sym == SDLK_p) {
-				if (pause_f == false){
-					pause_f = 1;
-				} else {
-					pause_f = 0;
-				}
+				pause_f = !pause_f;
 				break;
-                   	}				// pause
+			}				// pause
 		}
 	}	
 }
