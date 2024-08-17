@@ -39,10 +39,9 @@ I will provide updates as best as I can :smile:
 * Points allocation routine
 * Intro (page / music)
 * Game play (music / Sound FX)
-* Invert backdrop gradient (ctrl + X)
+* Tile shape
 
 ## In Progress
-* Next piece preview
 * Brick (left-right movement / drop)
 * Game (loop / timing / logic)
 
@@ -61,6 +60,8 @@ I will provide updates as best as I can :smile:
 * Pause
 * Restart
 * Keyboard input
+* Invert backdrop gradient (ctrl + X)
+* Next piece preview
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
