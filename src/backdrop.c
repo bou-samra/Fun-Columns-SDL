@@ -1,5 +1,9 @@
 #include <SDL2/SDL.h>
+#include <stdbool.h>
+
 extern SDL_Renderer *sr;
+extern bool gradient_d;
+
 enum gradient {Blue = 0, Green = 10, Red = 20, Yellow = 30, Magenta = 40, Cyan = 50, Grey = 60} colour = 0;
 
 ////////////////// BOARD BACKDROP COLOURS //////////////////
@@ -16,17 +20,27 @@ int grad_tab[] = {
 };
 
 	k = 0;				// gradient fill
-	for (int j = 0; j < 10; j++) {
-		SDL_SetRenderDrawColor (sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
-		for (int i = 0; i < 20; i++) {
-			SDL_RenderDrawLine (sr, 0, k, 319, k);
-			k = k + 1;
+	if (gradient_d == false) {
+		for (int j = 0; j < 10; j++) {
+			SDL_SetRenderDrawColor (sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
+			for (int i = 0; i < 20; i++) {
+				SDL_RenderDrawLine (sr, 0, k, 319, k);
+				k = k + 1;
+			}
+		}
+	} else {			// invert gradient
+		for (int j = 9; j > -1; j--) {
+			SDL_SetRenderDrawColor (sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
+			for (int i = 0; i < 20; i++) {
+				SDL_RenderDrawLine (sr, 0, k, 319, k);
+				k = k + 1;
+			}
 		}
 	}
 
 	k = 0;				// horizontal edge light
-		SDL_SetRenderDrawColor (sr, 0x99, 0x99, 0x99, 255);
-		for (int i = 0; i < 16; i++) {
+	SDL_SetRenderDrawColor (sr, 0x99, 0x99, 0x99, 255);
+	for (int i = 0; i < 16; i++) {
 		SDL_RenderDrawLine (sr, k, 0, k, 199);
 		k = k + 20;
 	}
