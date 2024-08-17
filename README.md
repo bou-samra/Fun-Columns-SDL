@@ -37,6 +37,9 @@ I will provide updates as best as I can :smile:
 * Cluster (removal / realignment)
 * High scores routine
 * Points allocation routine
+* Levels (**1 -6**)
+
+## Nice to have
 * Intro (page / music)
 * Game play (music / Sound FX)
 
