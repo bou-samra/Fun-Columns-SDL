@@ -15,7 +15,8 @@ extern SDL_Texture * texture;
 extern int tile_pos;
 extern bool next_p;	// next piece flag
 
-int tile_shp, tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
+int tile_shp = 1;
+int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 int row = 0, col = 0;
 int tile_c;
 int last_time, current_time, deltatime, score;
@@ -87,7 +88,6 @@ return 0;
 
 ///////////////// DISPLAY NEXT PIECE /////////////////
 int Ren_next(void) {
-	tile_shp = 1;							// tile shape
 	if (next_p == 0) {
 	} else {
 		SDL_SetRenderDrawColor(sr, 0x00 , 0x00 , 0x00, 0xff);
@@ -198,7 +198,7 @@ int Ren_pause(void) {
 int Ren_menu(void) {
 	backdrop(colour);
 	Ren_logo();						// logo
-	Ren_level();						// render current level/score
+	Ren_level();					// render current level/score
 	Ren_next();						// render next brick/block/piece
 	Ren_high();						// render high scores
 	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
@@ -217,7 +217,6 @@ int display_grid() {
 	for (int i = 0; i < 18; i++) {
 		for  (int j = 0; j < 8; j++) {
 			int k = grid[0][i][j];
-			tile_shp = 1;							// tile shape
 			tilesrc_y = 0;
 			if (k > 0) {
 				k--;
@@ -245,10 +244,10 @@ int Ren_game(void) {
 		return 0;
 	}
 	backdrop(colour);
-	Ren_logo();						// logo
-	Ren_level();						// render current level/score
-	Ren_next();						// render next brick/block/piece
-	Ren_high();						// render high scores
+	Ren_logo();					// logo
+	Ren_level();					// render current level/score
+	Ren_next();					// render next brick/block/piece
+	Ren_high();					// render high scores
 	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
 	SDL_RenderFillRect(sr, &main_back);			// background
 	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
