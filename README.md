@@ -41,7 +41,7 @@ I will provide updates as best as I can :smile:
 * Game play (music / Sound FX)
 
 ## In Progress
-* Brick (drop) (SPC)
+* Brick (drop) (**SPC**)
 * Game (loop / timing / logic)
 
 ## Done
@@ -49,19 +49,19 @@ I will provide updates as best as I can :smile:
 * Display updated board
 * No more moves / Game over
 * Random brick selection
-* Brick: rotation (R), Left (<-), Right (->)
+* Brick: Rotation (**R**), Left (**<-**), Right (**->**)
 * Random column selection
 * Display in play brick
-* Backdrop colour selection (^C) 
+* Backdrop Colour selection (**^C**) 
 * About screen
 * Menu screen
 * Info screen
-* Pause (P)
-* Restart (^R)
+* Pause (**P**)
+* Restart (**^R**)
 * Keyboard input
-* Invert backdrop gradient (ctrl + X)
-* Next piece preview (N)
-* Tile shape (^S)
+* Invert backdrop gradient (**ctrl + X**)
+* Next piece preview (**N**)
+* Tile Shape (**^S**)
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
