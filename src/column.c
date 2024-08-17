@@ -93,7 +93,7 @@ int new_column(void) {
 //////////////////////////////// DISPLAY COLUMN //////////////////////////
 //  display brick in relevant row/column of board array
 	int disp_column(int row, int col) {
-	for (int i = 0; i < 3; i++) {
+	for (int i = -1; i < 3; i++) {
 		grid[0][row + i][col] = tile_current[i];
 	}
 	return 0;
