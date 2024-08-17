@@ -15,5 +15,10 @@ int Ren_next (void);		// display next block/brick/piece
 int Ren_high (void);		// display high scores
 int Ren_line (char line[], int char_x, int char_y, int ln, int ll, bool col ); // parameter names in function prototypes not necessary 
 
+extern int tile_shp;
+extern int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 extern int row, col;
+extern int tile_c;
+extern int last_time, current_time, deltatime, score;
+
 #endif
