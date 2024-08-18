@@ -14,7 +14,7 @@ I will provide updates as best as I can :smile:
 * 04/05/2024 - Foundation code.
 * 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life.
 * 12/08/2024 - Code refactoring and tidyup.
-* 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle.
+* 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle. Ironing out bugs.
 
 ## Compilation
 * Make sure to install the following development libraries
