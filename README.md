@@ -11,9 +11,10 @@ I will provide updates as best as I can :smile:
 
 ## Change-log:
 
-* 04/05/2024 - Foundation code
-* 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life
-* 12/08/2024 - code refactoring and tidyup
+* 04/05/2024 - Foundation code.
+* 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life.
+* 12/08/2024 - Code refactoring and tidyup.
+* 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle.
 
 ## Compilation
 * Make sure to install the following development libraries
@@ -34,7 +35,7 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* Cluster (removal / realignment)
+* Brick (cascade)
 * High scores routine
 * Points allocation routine
 * Levels (**1 -6**)
@@ -48,11 +49,11 @@ I will provide updates as best as I can :smile:
 * Game (loop / timing / logic)
 
 ## Done
-* Cluster detection
+* Cluster detection & elimination
 * Display updated board
 * No more moves / Game over
 * Random brick selection
-* Brick: Rotation (**R**), Left (**<-**), Right (**->**)
+* Brick: Rotation (**R**), Left (**←**), Right (**→**)
 * Random column selection
 * Display in play brick
 * Backdrop Colour selection (**^C**) 
