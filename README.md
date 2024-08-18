@@ -53,7 +53,7 @@ I will provide updates as best as I can :smile:
 * Display updated board
 * No more moves / Game over
 * Random brick selection
-* Brick: Rotation (**R**), Left (**←**), Right (**→**)
+* Brick: Rotation (**R**), Left (**🡄**), Right (**🡆**)
 * Random column selection
 * Display in play brick
 * Backdrop Colour selection (**^C**) 
