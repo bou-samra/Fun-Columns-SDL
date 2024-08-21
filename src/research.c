@@ -8,12 +8,14 @@
  ****************************************/
 #include <stdio.h>
 extern int grid [2][18][8];
-	
+
+#define DEBUG 0
+//////////////////// Detect clusters //////////////////////
+
 int research (void) {
 	int z;
 	int counter;
 // horizontal research
-
 	for (int k = 0; k < 18; k++) {
 		for (int i = 0; i < 6; i++) {
 			int counter = 1;
@@ -26,13 +28,11 @@ int research (void) {
 					grid[1][k][i] = 1;
 					grid[1][k][i + 1] = 1;
 					grid[1][k][i + 2] = 1;
-
 				}
 			}
 		}
 
 // vertical research
-
 	for (int k = 0; k < 8; k++) {
 		for (int i = 0; i < 16; i++) {
 			counter = 1;
@@ -50,7 +50,6 @@ int research (void) {
 		}
 
 // diagonal south/east  research
-
 	for (int k = 0; k < 11; k++) {
 		for (int i = 0; i < 6; i++) {
 			counter = 1;
@@ -68,8 +67,7 @@ int research (void) {
 	}
 
 	}
-// -- bottom left corner
-
+// bottom left corner
 	z = 5;
 	for (int k = 11; k < 16; k++) {
 		for (int i = 0; i < z; i++) {
@@ -88,8 +86,7 @@ int research (void) {
 		z = z - 1;
 	}
 
-// -- top right corner
-
+// top right corner
 	z = 5;
 	for (int k = 1; k < 6; k++) {
 		for (int i = 0; i < z; i++) {
@@ -109,7 +106,6 @@ int research (void) {
 	}
 
 // diagonal north/east match research
-
 	for (int k = 17; k > 6; k--) {
 		for (int i = 0; i < 6; i++) {
 			counter = 1;
@@ -120,14 +116,13 @@ int research (void) {
 				}
 				if (counter == 3) {
 					grid[1][k - i][i] = 1;
-					grid[1][k - i -1][i + 1] = 1;
-					grid[1][k - i -2][i + 2] = 1;
+					grid[1][k - i - 1][i + 1] = 1;
+					grid[1][k - i - 2][i + 2] = 1;
 				}
 		}
 
 	}
-// -- top left left corner
-
+// top left left corner
 	z = 5;
 	for (int k = 6; k > 0; k--) {
 		for (int i = 0; i < z; i++) {
@@ -146,33 +141,44 @@ int research (void) {
 		z = z - 1;
 	}
 
-// -- bottom right corner
-
+// bottom right corner
 	z = 5;
-	for (int k = 17; k > 11; k--) {
+	for (int k = 0; k < 5; k++) {
 		for (int i = 0; i < z; i++) {
 			counter = 1;
 			for (int j = 0; j < 2; j++) {
-				if (grid[0][17 - i - j][18 - i + j + k] == grid[0][16 - i - j][19 - i + j + k] && grid[0][16 - i - j][19 - i + j + k] != 0) {
+				if (grid[0][17 - j - i][j + i + k + 1] == grid[0][16 - j - i][j + i + k + 2] && grid[0][16 - j - i][j + i + k + 2] != 0) {
 					counter = counter + 1;
 				}
 			}
 			if (counter == 3) {
-					grid[1][17 - i ][18 - i  + k] = 1;
-					grid[1][16 - i ][19 - i  + k] = 1;
-					grid[1][15 - i ][20 - i  + k] = 1;
-			}
+					grid[1][17 - i][1 + i + k] = 1;
+					grid[1][16 - i][2 + i + k] = 1;
+					grid[1][15 - i][3 + i + k] = 1;
+}
 		}
 		z = z - 1;
 	}
 	
-// ==for test purposes==>
+// for test purposes
 #if DEBUG
-	for (y = 0;y < 18; y++) {
-		for (x = 0; x < 8; x++) {
+	for (int y = 0;y < 18; y++) {
+		for (int x = 0; x < 8; x++) {
 			if (grid[1][y][x] == 1) printf("match: %i, %i\n", y, x);
 		}
 	}
 #endif
 return 0;
+}
+
+///////////////////// Eliminate clusters ////////////////////////
+int eliminate_c () {
+	for (int y = 0; y < 18; y++) {
+		for (int x = 0; x < 8; x++) {
+			if (grid[1][y][x] == 1) {
+			grid[0][y][x] = 0;
+			}
+		}
+	}
+	return 0;
 }
