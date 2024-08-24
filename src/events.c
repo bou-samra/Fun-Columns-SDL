@@ -16,7 +16,6 @@ int handle_events () {
 
 //////////////////////////////// GAME LOOP //////////////////////////
 	while (restart == false) {
-		Ren_game (); 
 		SDL_PollEvent (&event);
 		switch (event.type) {
 			case SDL_KEYDOWN:
@@ -93,5 +92,6 @@ int handle_events () {
 				break;
 			}				// pause
 		}
+				Ren_game (); 
 	}	
 }
