@@ -20,7 +20,6 @@
 ///////////////// MAIN MENU ////////////////////////////
 int menu(void) {
 	quit = false;
-	research();
 	Ren_menu();
 	while (quit == false) {
 		SDL_Delay(20);
@@ -60,6 +59,8 @@ int main (void) {
 
 	initSDL ();
 	init_gfx();
+	research ();
+	eliminate_c ();
 	menu();
 	shutdownSDL ();
 	return 0;
