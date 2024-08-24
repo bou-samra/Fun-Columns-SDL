@@ -13,7 +13,9 @@ int Ren_menu (void);		// main menu
 int Ren_level (void);		// display level / current score
 int Ren_next (void);		// display next block/brick/piece
 int Ren_high (void);		// display high scores
-int Ren_line (char line[], int char_x, int char_y, int ln, int ll, bool col ); // parameter names in function prototypes not necessary 
+int Ren_line (char line[], int char_x, int char_y, int ln, int ll, bool col ); // parameter names in function prototypes not necessary
+int col_update(void);
+int Ren_frame();
 
 extern int tile_shp;
 extern int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
