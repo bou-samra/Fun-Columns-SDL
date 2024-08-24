@@ -212,7 +212,7 @@ int Ren_menu(void) {
 	return 0;
 }
 
-///////////////// DISPLAY GAME BOARD/////////////////
+///////////////// DISPLAY GAME BOARD /////////////////
 int display_grid() {
 	for (int i = 0; i < 18; i++) {
 		for  (int j = 0; j < 8; j++) {
@@ -237,12 +237,23 @@ int display_grid() {
 	return 0;
 }
 
-///////////////// UPDATE GAME /////////////////
-int Ren_game(void) {
-	if (pause_f == true) {
-		Ren_pause();
-		return 0;
+//////////////// GAME LOGIC ////////////////
+
+int game_logic(void) {
+	disp_column (row, col);
+	row++;
+	grid[0][row - 2][col] = 0;
+	if(row > 16) {
+		grid[0][15][col] = 0;
+		grid[0][16][col] = 0;
+		grid[0][17][col] = 0;
+		row = 0;
 	}
+}
+
+///////////////// RENDER FRAME //////////////..
+
+int Ren_frame() {
 	backdrop(colour);
 	Ren_logo();					// logo
 	Ren_level();					// render current level/score
@@ -253,24 +264,24 @@ int Ren_game(void) {
 	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
 	SDL_RenderDrawRect(sr, &main_trim);			// trim
 	display_grid();
-	if(row > 15) {
-		grid[0][15][col] = 0;
-		grid[0][16][col] = 0;
-		grid[0][17][col] = 0;
-		row = 0;
-	}
+	SDL_RenderPresent (sr);
+	return 0;
+}
 
-	for (int i = 0; i < 1; i++) {
- 		current_time = SDL_GetTicks();
+///////////////// UPDATE GAME /////////////////
+int Ren_game(void) {
+	while (pause_f != true)
+	{
+		current_time = SDL_GetTicks();
 		deltatime = current_time - last_time;
-		if (deltatime > 500) {				// deltatime > 500 - (score * 10)
+		if (deltatime > 1000) {
 			last_time = current_time;
 			deltatime = 0;
-			disp_column (row, col);
-			row++;
-			grid[0][row - 2][col] = 0;
+			game_logic();
 		}
-		SDL_RenderPresent (sr);
+		Ren_frame();
 		return 0;
 	}
+	Ren_pause();
+	return 0;
 }
