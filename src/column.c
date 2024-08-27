@@ -15,28 +15,29 @@ int tile_current[3]	= {1, 2, 3};
 int tile_next[3]	= {5, 5, 5};
 int mask[2]		= {360, 372};
 int spr_y[6]		= {0, 11, 22, 33, 44, 55};
+int colcnt[8]		= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
 
 //////////////////////////////// GAME BOARD ARRAY //////////////////////////
 int grid [2][18][8] = {
 	{
 		{0, 0, 0, 0, 0, 0, 0, 0},		// colours
 		{0, 0, 0, 0, 0, 0, 0, 0},
-		{0, 0, 5, 0, 0, 0, 0, 0},
-		{0, 0, 1, 0, 0, 0, 0, 0},
-		{0, 0, 6, 0, 0, 0, 0, 0},
-		{0, 0, 3, 0, 4, 0, 0, 0},
-		{0, 0, 5, 0, 3, 0, 0, 0},
-		{3, 0, 1, 0, 5, 0, 0, 0},
-		{5, 0, 4, 0, 0, 0, 0, 0},
-		{6, 0, 3, 0, 2, 0, 0, 6},
-		{3, 0, 5, 3, 2, 0, 0, 3},
-		{6, 0, 4, 1, 6, 1, 4, 2},
-		{4, 0, 5, 2, 4, 2, 3, 2},
-		{1, 1, 2, 4, 3, 2, 5, 6},
-		{5, 6, 2, 2, 4, 5, 3, 2},
-		{4, 1, 4, 4, 1, 1, 4, 1},
-		{6, 4, 6, 1, 3, 3, 6, 3},
-		{5, 4, 6, 5, 6, 1, 1, 6},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0, 0},
 	},
 	{
 		{0, 0, 0, 0, 0, 0, 0, 0},		// matches
@@ -60,21 +61,31 @@ int grid [2][18][8] = {
 	}
 };
 
+///////////////////////////// COUNT COLUMNS ////////////////////////////////
+int count_col(void) {
+for (int i=0; i < 8; i++) {
+colcnt[i] = 0;
+}
+
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 18; j++) {
+			if (grid[0][j][i] == 0) { colcnt[i]++;}		// count empty spaces in each column
+		}
+	}
+}
+
+
+
 ////////////////////////////////  NEW COLUMN //////////////////////////
 // randomly choose from remaining available columns to drop next brick into
 int new_column(void) {
-	int colcnt[8]		= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
 	int avl;				// general counter
 	int actual_col		= 0;		// actual absolute column in game panel
 	int totcol_avail	= 0;		// keep track of available columns
 	int randc;				// random column number
 
 	//totcol_avail = 0;
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 18; j++) {
-			if (grid[0][j][i] == 0) { colcnt[i]++;}		// count empty spaces in each column
-		}
-	}
+	count_col();
 	for (int i = 0; i < 8; i++) {
 		if (colcnt[i] > 2) {totcol_avail++;}			// count total available columns
 	}
