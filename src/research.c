@@ -159,7 +159,7 @@ int research (void) {
 		}
 		z = z - 1;
 	}
-	
+
 // for test purposes
 #if DEBUG
 	for (int y = 0;y < 18; y++) {
