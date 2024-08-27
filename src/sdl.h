@@ -6,7 +6,7 @@ int shutdownSDL ();
 int check_key(void);
 int init_gfx(void);
 
-// ============== SDL structures
+/////////// SDL structures ////////////
 extern SDL_Window *window;
 extern SDL_Renderer *sr;
 extern SDL_Event event;
