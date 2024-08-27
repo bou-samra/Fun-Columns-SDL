@@ -240,18 +240,23 @@ int display_grid() {
 //////////////// GAME LOGIC ////////////////
 
 int game_logic(void) {
+//	new_brick();
+	count_col();
+	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
 	disp_column (row, col);
-	row++;
 	grid[0][row - 2][col] = 0;
-	if(row > 16) {
-		grid[0][15][col] = 0;
-		grid[0][16][col] = 0;
-		grid[0][17][col] = 0;
+	if(row == colcnt[col]) {
 		row = 0;
+			for (int i = 0; i < 3; i++) {
+				tile_current[i] = tile_next[i];
+			}
+			new_brick();
+			col = new_column();
 	}
+	row++;
 }
 
-///////////////// RENDER FRAME //////////////..
+///////////////// RENDER FRAME //////////////
 
 int Ren_frame() {
 	backdrop(colour);
@@ -274,7 +279,7 @@ int Ren_game(void) {
 	{
 		current_time = SDL_GetTicks();
 		deltatime = current_time - last_time;
-		if (deltatime > 1000) {
+		if (deltatime > 200) {
 			last_time = current_time;
 			deltatime = 0;
 			game_logic();
