@@ -26,7 +26,7 @@ int handle_events () {
 				backdrop(colour);
 				break;
 			}				// gradient colour cycle
-			
+
 				if( event.key.keysym.sym == SDLK_x
 				&& (event.key.keysym.mod & KMOD_CTRL) != 0 ) {
 				gradient_d = !gradient_d;
@@ -92,6 +92,6 @@ int handle_events () {
 				break;
 			}				// pause
 		}
-				Ren_game (); 
-	}	
+				Ren_game ();
+	}
 }
