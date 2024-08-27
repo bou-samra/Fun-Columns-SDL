@@ -6,6 +6,7 @@ extern int tile_next[3];
 extern int grid[2][18][8];
 extern int mask[2];
 extern int spr_y[6];
+extern int colcnt[8];
 
 int new_column ();			// select random column to drop brick into
 int disp_column (int row, int col);	// update column board
@@ -14,5 +15,6 @@ int rotate_col (void);
 int display_tile ();			// display current column in play (not implemented)
 int move_horiz (void);
 int move_down (void);
+int count_col(void);
 
 #endif
