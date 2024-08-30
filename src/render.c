@@ -99,11 +99,11 @@ int Ren_next(void) {
 		SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 0xff);
 		SDL_RenderDrawRect(sr, &next_trim);			// trim
 		for (int i = 0; i < 3; i++) {
-		tile_src.x = spr_x[tile_shp][tile_next[i] - 1];		// source x position in sprite map depends on tile shape and colour
-		tile_src.y = 0;						// source y position in sprite map = 0
-		tile_dst.x = 260;					// tile destination x position = 260
-		tile_dst.y = 88 + (i * 11);				// add 11 pixels to move to next tile destination y location
-		SDL_RenderCopy(sr, texture, &tile_src, &tile_dst);
+			tile_src.x = spr_x[tile_shp][tile_next[i] - 1];		// source x position in sprite map depends on tile shape and colour
+			tile_src.y = 0;						// source y position in sprite map = 0
+			tile_dst.x = 260;					// tile destination x position = 260
+			tile_dst.y = 88 + (i * 11);				// add 11 pixels to move to next tile destination y location
+			SDL_RenderCopy(sr, texture, &tile_src, &tile_dst);
 		}
 	}
 	return 0;
@@ -240,19 +240,17 @@ int display_grid() {
 //////////////// GAME LOGIC ////////////////
 
 int game_logic(void) {
-//	new_brick();
-	count_col();
 	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
-	disp_column (row, col);
-	grid[0][row - 2][col] = 0;
+	disp_column (row, col);		// update column in grid
+	count_col();			// count number of empty spaces in each column
 	if(row == colcnt[col]) {
+		row = -1;
+		col = new_column();
+// next column preview here
+		new_brick();
+	} else if (row == 16) {
 		row = 0;
-			for (int i = 0; i < 3; i++) {
-				tile_current[i] = tile_next[i];
-			}
-			new_brick();
-			col = new_column();
-	}
+		}
 	row++;
 }
 
@@ -279,7 +277,7 @@ int Ren_game(void) {
 	{
 		current_time = SDL_GetTicks();
 		deltatime = current_time - last_time;
-		if (deltatime > 200) {
+		if (deltatime > 500) {
 			last_time = current_time;
 			deltatime = 0;
 			game_logic();
