@@ -15,6 +15,7 @@ I will provide updates as best as I can :smile:
 * 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life.
 * 12/08/2024 - Code refactoring and tidyup.
 * 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle. Ironing out bugs.
+* 30/08/2024 - It's been four months already. More incremental progress. Hopefully not much longer now. 
 
 ## Compilation
 * Make sure to install the following development libraries
@@ -35,8 +36,8 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* Brick (cascade)
-* High scores routine
+* High scores (entry & panel)
+* Status (panel)
 * Points allocation routine
 * Levels (**1 -6**)
 
@@ -45,11 +46,10 @@ I will provide updates as best as I can :smile:
 * Game play (music / Sound FX)
 
 ## In Progress
-* Brick (drop) (**SPC**)
-* Game (loop / timing / logic)
+* Brick (cluster elimination & explosion)
 
 ## Done
-* Cluster detection & elimination
+* Cluster detection
 * Display updated board
 * No more moves / Game over
 * Random brick selection
@@ -67,6 +67,8 @@ I will provide updates as best as I can :smile:
 * Invert backdrop gradient (**ctrl + X**)
 * Next piece preview (**N**)
 * Tile Shape (**^S**)
+* Brick (drop) (**SPC**)
+* Game (loop / timing / logic) - still some issues need to be ironed out.
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
