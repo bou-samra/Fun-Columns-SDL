@@ -1,5 +1,7 @@
 #include <sodium.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include "events.h"
 
 /********************
  * tile colours	    *
@@ -87,14 +89,14 @@ int new_column(void) {
 	//totcol_avail = 0;
 	count_col();
 	for (int i = 0; i < 8; i++) {
-		if (colcnt[i] > 2) {totcol_avail++;}			// count total available columns
+		if (colcnt[i] > 3) {totcol_avail++;}			// count total available columns
 	}
 	if (totcol_avail == 0) {
-		printf("game over\n");} else {				// no more columns available
+		printf("game over\n"); restart=true;} else {				// no more columns available
 			randc = randombytes_uniform(totcol_avail) + 0;	// choose random number from available columns
 			avl = -1;
 			for (int i = 0; randc != avl; i++) {		// translate random num from avail column to actual column
-				if (colcnt[i] > 2) {avl++;}
+				if (colcnt[i] > 3) {avl++;}
 			actual_col = i;					// might need to move this down to next brace
 			}
 		}
