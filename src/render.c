@@ -7,6 +7,7 @@
 #include "backdrop.h"
 #include "events.h"
 #include "sdl.h"
+#include "research.h"
 
 extern int spr_x[5][6];
 extern int grid[2][18][8];
@@ -53,33 +54,33 @@ SDL_Rect gameo_back	= {119, 93, 82, 13};
 // api: text, x, y, line num, line len, col
 int Ren_line(char line[], int char_x, int char_y, int ln, int ll, bool col ) {
 
-	int cc;			// char col
+	int cc;									// char col
 	int j = 0;
 
 	if (col) {
-		cc = 2;		// white char
+		cc = 2;								// white char
 	} else {
-		cc = 0;		// black char
+		cc = 0;								// black char
 	}
 	for (int i = 0; i < ll; i++) {
 		SDL_Rect char_dst = {char_x + j, char_y, 8, 5};
 		SDL_Rect char_src = {ascii[line[i + ln]][cc], ascii[line[i + ln]][cc + 1], 8, 5};
-		SDL_RenderCopy(sr, texture, &char_src, &char_dst);	// render char
-		j = j + 8;						// character height
+		SDL_RenderCopy(sr, texture, &char_src, &char_dst);		// render char
+		j = j + 8;							// character height
 	}
 	return 0;
 }
 ///////////////// DISPLAY STATUS /////////////////
 int Ren_level(void) {
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
-	SDL_RenderFillRect(sr, &level_back);			// background
+	SDL_RenderFillRect(sr, &level_back);					// background
 	SDL_SetRenderDrawColor (sr, 0x00, 0x00, 0x00, 255);
-	SDL_RenderDrawRect(sr, &level_trim);			// trim
-	SDL_RenderDrawLine (sr, 234, 74, 308, 74);		// level shadow
+	SDL_RenderDrawRect(sr, &level_trim);					// trim
+	SDL_RenderDrawLine (sr, 234, 74, 308, 74);				// level shadow
 	SDL_RenderDrawLine (sr, 234, 75, 309, 75);
 	SDL_RenderDrawLine (sr, 308, 75, 308, 10);
 	SDL_RenderDrawLine (sr, 309, 74, 309, 10);
-	for (int z = 0; z < 6; z++) {                                      // 6 lines of text
+	for (int z = 0; z < 6; z++) {						// 6 lines of text
 		Ren_line(status, statusl[z][0], statusl[z][1], z * 7, 7, 1);
 	}
 
@@ -91,13 +92,13 @@ int Ren_next(void) {
 	if (next_p == 0) {
 	} else {
 		SDL_SetRenderDrawColor(sr, 0x00 , 0x00 , 0x00, 0xff);
-		SDL_RenderFillRect(sr, &next_back);			// background
-		SDL_RenderDrawLine (sr, 259, 124, 276, 124);		// next shadow
+		SDL_RenderFillRect(sr, &next_back);				// background
+		SDL_RenderDrawLine (sr, 259, 124, 276, 124);			// next shadow
 		SDL_RenderDrawLine (sr, 259, 125, 277, 125);
 		SDL_RenderDrawLine (sr, 276, 124, 276, 89);
 		SDL_RenderDrawLine (sr, 277, 125, 277, 89);
 		SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 0xff);
-		SDL_RenderDrawRect(sr, &next_trim);			// trim
+		SDL_RenderDrawRect(sr, &next_trim);				// trim
 		for (int i = 0; i < 3; i++) {
 			tile_src.x = spr_x[tile_shp][tile_next[i] - 1];		// source x position in sprite map depends on tile shape and colour
 			tile_src.y = 0;						// source y position in sprite map = 0
@@ -112,14 +113,14 @@ int Ren_next(void) {
 ///////////////// DISPLAY HIGH SCORES /////////////////
 int Ren_high(void) {
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
-	SDL_RenderFillRect(sr, &high_back);			// background
+	SDL_RenderFillRect(sr, &high_back);					// background
 	SDL_SetRenderDrawColor (sr, 0x00, 0x00, 0x00, 255);
-	SDL_RenderDrawRect(sr, &high_trim);			// trim
-	SDL_RenderDrawLine (sr, 17, 194, 90, 194);		// next shadow
+	SDL_RenderDrawRect(sr, &high_trim);					// trim
+	SDL_RenderDrawLine (sr, 17, 194, 90, 194);				// next shadow
 	SDL_RenderDrawLine (sr, 17, 195, 91, 195);
 	SDL_RenderDrawLine (sr, 90, 194, 90, 10);
 	SDL_RenderDrawLine (sr, 91, 195, 91, 10);
-	for (int z = 0; z < 18; z++) {					// 18 lines of text
+	for (int z = 0; z < 18; z++) {						// 18 lines of text
 		Ren_line(high, highl[z][0], highl[z][1], z * 7, 7, 1);
 	}
 	return 0;
@@ -128,7 +129,7 @@ int Ren_high(void) {
 ///////////////// DISPLAY LOGO /////////////////
 int Ren_logo(void) {
 	SDL_RenderCopy(sr, texture, &logo_src, &logo_dst);
-	SDL_SetRenderDrawColor (sr, 0x0, 0x0, 0x0, 255);		// shadow
+	SDL_SetRenderDrawColor (sr, 0x0, 0x0, 0x0, 255);			// shadow
 	SDL_RenderDrawLine (sr, 234, 190, 308, 190);
 	SDL_RenderDrawLine (sr, 234, 191, 309, 191);
 	SDL_RenderDrawLine (sr, 308, 190, 308, 140);
@@ -139,15 +140,15 @@ int Ren_logo(void) {
 ///////////////// DISPLAY ABOUT /////////////////
 int Ren_about(void) {
 	backdrop(colour);
-	Ren_logo();			// logo
-	Ren_level();			// render current level/score
-	Ren_next();			// render next brick/block/piece
-	Ren_high();			// render high scores
+	Ren_logo();								// logo
+	Ren_level();								// render current level/score
+	Ren_next();								// render next brick/block/piece
+	Ren_high();								// render high scores
 	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
-	SDL_RenderFillRect(sr, &main_back);			// background
+	SDL_RenderFillRect(sr, &main_back);					// background
 	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
-	SDL_RenderDrawRect(sr, &main_trim);			// trim
-	for (int z = 0; z < 13; z++) {				// 13 lines of text
+	SDL_RenderDrawRect(sr, &main_trim);					// trim
+	for (int z = 0; z < 13; z++) {						// 13 lines of text
 		Ren_line(about, aboutl[z][0], aboutl[z][1], z * 11, 11, 0);
 	}
 	SDL_RenderPresent (sr);
@@ -157,15 +158,15 @@ int Ren_about(void) {
 ///////////////// DISPLAY INFO /////////////////
 int Ren_info(void) {
 	backdrop(colour);
-	Ren_logo();			// logo
-	Ren_level();			// render current level/score
-	Ren_next();			// render next brick/block/piece
-	Ren_high();			// render high scores
+	Ren_logo();								// logo
+	Ren_level();								// render current level/score
+	Ren_next();								// render next brick/block/piece
+	Ren_high();								// render high scores
 	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
-	SDL_RenderFillRect(sr, &main_back);			// background
+	SDL_RenderFillRect(sr, &main_back);					// background
 	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
-	SDL_RenderDrawRect(sr, &main_trim);			// trim
-	for (int z = 0; z < 11; z++) {				// 11 lines of text
+	SDL_RenderDrawRect(sr, &main_trim);					// trim
+	for (int z = 0; z < 11; z++) {						// 11 lines of text
 		Ren_line(info, infol[z][0], infol[z][1], z * 11, 11, 0);
 	}
 	SDL_RenderPresent (sr);
@@ -175,8 +176,8 @@ int Ren_info(void) {
 ///////////////// DISPLAY GAME OVER /////////////////
 int Ren_restart(void) {
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
-	SDL_RenderFillRect(sr, &gameo_back);			// background
-	for (int z = 0; z < 1; z++) {				// 1 line of text
+	SDL_RenderFillRect(sr, &gameo_back);					// background
+	for (int z = 0; z < 1; z++) {						// 1 line of text
 		Ren_line(gameo, gameol[z][0], gameol[z][1], z * 9, 9, 1);
 	}
 			SDL_RenderPresent (sr);
@@ -186,8 +187,8 @@ int Ren_restart(void) {
 ///////////////// DISPLAY PAUSE /////////////////
 int Ren_pause(void) {
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
-	SDL_RenderFillRect(sr, &gameo_back);			// background
-	for (int z = 0; z < 1; z++) {				// 1 line of text
+	SDL_RenderFillRect(sr, &gameo_back);					// background
+	for (int z = 0; z < 1; z++) {						// 1 line of text
 		Ren_line(pause, pausel[z][0], pausel[z][1], z * 9, 9, 1);
 	}
 		SDL_RenderPresent (sr);
@@ -197,15 +198,15 @@ int Ren_pause(void) {
 ///////////////// DISPLAY MAIN MENU /////////////////
 int Ren_menu(void) {
 	backdrop(colour);
-	Ren_logo();						// logo
-	Ren_level();					// render current level/score
-	Ren_next();						// render next brick/block/piece
-	Ren_high();						// render high scores
-	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
-	SDL_RenderFillRect(sr, &main_back);			// background
-	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
-	SDL_RenderDrawRect(sr, &main_trim);			// trim
-	for (int z = 0; z < 10; z++) {				// 10 lines of text
+	Ren_logo();								// logo
+	Ren_level();								// render current level/score
+	Ren_next();								// render next brick/block/piece
+	Ren_high();								// render high scores
+	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);		
+	SDL_RenderFillRect(sr, &main_back);					// background
+	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);		
+	SDL_RenderDrawRect(sr, &main_trim);					// trim
+	for (int z = 0; z < 10; z++) {						// 10 lines of text
 		Ren_line(m_menu, m_menul[z][0], m_menul[z][1], z * 11, 11, 0);
 	}
 	SDL_RenderPresent (sr);
@@ -213,7 +214,7 @@ int Ren_menu(void) {
 }
 
 ///////////////// DISPLAY GAME BOARD /////////////////
-int display_grid() {
+int display_grid(void) {
 	for (int i = 0; i < 18; i++) {
 		for  (int j = 0; j < 8; j++) {
 			int k = grid[0][i][j];
@@ -225,12 +226,12 @@ int display_grid() {
 				tile_src.y = tilesrc_y;
 				tile_dst.x = tiledst_x + 112 + (j * 12);
 				tile_dst.y = tiledst_y + 1 + (i * 11);
-				SDL_RenderCopy(sr, texture, &tile_src, &tile_dst);	// draw colour tile
+				SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
 			} else {
 				tile_dst.x = tiledst_x + 112 + (j * 12);
 				tile_dst.y = tiledst_y + 1 + (i * 11);
 				SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
-				SDL_RenderFillRect(sr, &tile_dst);			// draw empty tile
+				SDL_RenderFillRect(sr, &tile_dst);		// draw empty tile
 			}
 		}
 	}
@@ -241,31 +242,41 @@ int display_grid() {
 
 int game_logic(void) {
 	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
-	disp_column (row, col);		// update column in grid
-	count_col();			// count number of empty spaces in each column
+	disp_column (row, col);							// update column in grid
+	count_col();								// count number of empty spaces in each column
 	if(row == colcnt[col]) {
 		row = -1;
+		while (research()) {
+		eliminate_c();
+		cascade();
+		clear();
+		}
 		col = new_column();
 // next column preview here
 		new_brick();
-	} else if (row == 16) {
-		row = 0;
-		}
+	} //else if (row == 16) {
+		//while (research()) {
+		//eliminate_c();
+		//cascade();
+		//clear();
+		//}
+		//row = 0;
+		//}
 	row++;
 }
 
 ///////////////// RENDER FRAME //////////////
 
-int Ren_frame() {
+int Ren_frame(void) {
 	backdrop(colour);
-	Ren_logo();					// logo
-	Ren_level();					// render current level/score
-	Ren_next();					// render next brick/block/piece
-	Ren_high();					// render high scores
+	Ren_logo();								// logo
+	Ren_level();								// render current level/score
+	Ren_next();								// render next brick/block/piece
+	Ren_high();								// render high scores
 	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
-	SDL_RenderFillRect(sr, &main_back);			// background
+	SDL_RenderFillRect(sr, &main_back);					// background
 	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
-	SDL_RenderDrawRect(sr, &main_trim);			// trim
+	SDL_RenderDrawRect(sr, &main_trim);					// trim
 	display_grid();
 	SDL_RenderPresent (sr);
 	return 0;
@@ -277,7 +288,7 @@ int Ren_game(void) {
 	{
 		current_time = SDL_GetTicks();
 		deltatime = current_time - last_time;
-		if (deltatime > 500) {
+		if (deltatime > 10) {
 			last_time = current_time;
 			deltatime = 0;
 			game_logic();
