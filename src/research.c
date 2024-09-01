@@ -7,14 +7,16 @@
  ** thus probably not very efficient   **
  ****************************************/
 #include <stdio.h>
+#include <stdbool.h>
 extern int grid [2][18][8];
 
 #define DEBUG 0
 //////////////////// Detect clusters //////////////////////
 
-int research (void) {
+bool research (void) {
 	int z;
 	int counter;
+	bool matched = false;
 // horizontal research
 	for (int k = 0; k < 18; k++) {
 		for (int i = 0; i < 6; i++) {
@@ -28,6 +30,7 @@ int research (void) {
 					grid[1][k][i] = 1;
 					grid[1][k][i + 1] = 1;
 					grid[1][k][i + 2] = 1;
+					matched = true;
 				}
 			}
 		}
@@ -45,9 +48,10 @@ int research (void) {
 					grid[1][i][k] = 1;
 					grid[1][i + 1][k] = 1;
 					grid[1][i + 2][k] = 1;
+					matched = true;
 				}
-			}
 		}
+	}
 
 // diagonal south/east  research
 	for (int k = 0; k < 11; k++) {
@@ -62,10 +66,10 @@ int research (void) {
 					grid[1][i + k][i] = 1;
 					grid[1][i + k + 1][i + 1] = 1;
 					grid[1][i + k + 2][i + 2] = 1;
+					matched = true;
 				}
 
-	}
-
+		}
 	}
 // bottom left corner
 	z = 5;
@@ -81,6 +85,7 @@ int research (void) {
 					grid[1][i + k][i] = 1;
 					grid[1][i + k + 1][i + 1] = 1;
 					grid[1][i + k + 2][i + 2] = 1;
+					matched = true;
 				}
 		}
 		z = z - 1;
@@ -100,6 +105,7 @@ int research (void) {
 					grid[1][i][i + k] = 1;
 					grid[1][i + 1][i + k + 1] = 1;
 					grid[1][i + 2][i + k + 2] = 1;
+					matched = true;
 				}
 		}
 		z = z - 1;
@@ -118,6 +124,7 @@ int research (void) {
 					grid[1][k - i][i] = 1;
 					grid[1][k - i - 1][i + 1] = 1;
 					grid[1][k - i - 2][i + 2] = 1;
+					matched = true;
 				}
 		}
 
@@ -136,6 +143,7 @@ int research (void) {
 					grid[1][k - i][i] = 1;
 					grid[1][k - i - 1][i + 1] = 1;
 					grid[1][k - i - 2][i + 2] = 1;
+					matched = true;
 			}
 		}
 		z = z - 1;
@@ -155,7 +163,8 @@ int research (void) {
 					grid[1][17 - i][1 + i + k] = 1;
 					grid[1][16 - i][2 + i + k] = 1;
 					grid[1][15 - i][3 + i + k] = 1;
-}
+					matched = true;
+			}
 		}
 		z = z - 1;
 	}
@@ -168,7 +177,7 @@ int research (void) {
 		}
 	}
 #endif
-return 0;
+return matched;
 }
 
 ///////////////////// Eliminate clusters ////////////////////////
@@ -181,4 +190,33 @@ int eliminate_c () {
 		}
 	}
 	return 0;
+}
+
+///////////////////// cascade ////////////////////////
+int cascade() {
+int floor, ceiling, num_tiles;
+
+	for (int j = 0; j < 8; j++) {
+	num_tiles = floor = ceiling = 0;
+		for (int i = 17; i > -1; i--) {
+			if (grid[1][i][j] == 1) {num_tiles++;}
+		}				// find total number of tiles to drop
+		for (int i = 17; i > -1; i--) {
+			if (grid[1][i][j] == 1) {floor = i; break;}
+			}					// find floor
+			ceiling = floor - num_tiles;		// find ceiling
+		for (int i = 0; i < ceiling; i++) {
+			grid[0][floor - i][j] = grid[0][ceiling - i][j];
+			}					// actual drop routine
+	}
+}
+
+///////////////////// clear matched ////////////////////////
+// clear matched 3rd dimension array (this should be easy)
+int clear() {
+	for (int j = 0; j < 7; j++) {
+		for (int i = 0; i < 18; i++) {
+			grid[1][i][j] = 0;
+		}
+	}
 }
