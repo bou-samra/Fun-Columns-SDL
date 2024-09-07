@@ -3,20 +3,24 @@
  ** jc 'al-khwarizmi' bou-samra        **
  ** paragonsoft 08/06/24               **
  ** this routine uses brute force to   **
- ** find cluster permutations and      **
+ ** detect cluster permutations and    **
  ** thus probably not very efficient   **
  ****************************************/
 #include <stdio.h>
 #include <stdbool.h>
-extern int grid [2][18][8];
+#include <SDL2/SDL.h>
+#include "render.h"
+#include "column.h"
+#include "sdl.h"
 
 #define DEBUG 0
-//////////////////// Detect clusters //////////////////////
+//////////////////// DETECT CLUSTERS //////////////////////
 
-bool research (void) {
+bool research(void) {
 	int z;
 	int counter;
 	bool matched = false;
+
 // horizontal research
 	for (int k = 0; k < 18; k++) {
 		for (int i = 0; i < 6; i++) {
@@ -27,13 +31,13 @@ bool research (void) {
 					}
 				}
 				if (counter == 3) {
-					grid[1][k][i] = 1;
-					grid[1][k][i + 1] = 1;
-					grid[1][k][i + 2] = 1;
+					for (int m = 0; m < 3; m++) {
+						grid[1][k][i + m] = 1;
+					}
 					matched = true;
 				}
-			}
 		}
+	}
 
 // vertical research
 	for (int k = 0; k < 8; k++) {
@@ -45,9 +49,9 @@ bool research (void) {
 					}
 				}
 				if (counter == 3) {
-					grid[1][i][k] = 1;
-					grid[1][i + 1][k] = 1;
-					grid[1][i + 2][k] = 1;
+					for (int m = 0; m < 3; m++) {
+						grid[1][i + m][k] = 1;
+					}
 					matched = true;
 				}
 		}
@@ -63,9 +67,9 @@ bool research (void) {
 					}
 				}
 					if (counter == 3) {
-					grid[1][i + k][i] = 1;
-					grid[1][i + k + 1][i + 1] = 1;
-					grid[1][i + k + 2][i + 2] = 1;
+					for (int m = 0; m < 3; m++) {
+						grid[1][i + k + m][i + m] = 1;
+					}
 					matched = true;
 				}
 
@@ -82,9 +86,9 @@ bool research (void) {
 					}
 				}
 				if (counter == 3) {
-					grid[1][i + k][i] = 1;
-					grid[1][i + k + 1][i + 1] = 1;
-					grid[1][i + k + 2][i + 2] = 1;
+					for (int m = 0; m < 3; m++) {
+						grid[1][i + k + m][i + m] = 1;
+					}
 					matched = true;
 				}
 		}
@@ -102,9 +106,9 @@ bool research (void) {
 					}
 				}
 				if (counter == 3) {
-					grid[1][i][i + k] = 1;
-					grid[1][i + 1][i + k + 1] = 1;
-					grid[1][i + 2][i + k + 2] = 1;
+					for (int m = 0; m < 3; m++) {
+					grid[1][i + m][i + k + m] = 1;
+					}
 					matched = true;
 				}
 		}
@@ -121,15 +125,15 @@ bool research (void) {
 					}
 				}
 				if (counter == 3) {
-					grid[1][k - i][i] = 1;
-					grid[1][k - i - 1][i + 1] = 1;
-					grid[1][k - i - 2][i + 2] = 1;
+					for (int m = 0; m < 3; m++) {
+					grid[1][k - i - m][i + m] = 1;
+					}
 					matched = true;
 				}
 		}
 
 	}
-// top left left corner
+// top left corner
 	z = 5;
 	for (int k = 6; k > 0; k--) {
 		for (int i = 0; i < z; i++) {
@@ -140,9 +144,9 @@ bool research (void) {
 				}
 			}
 			if (counter == 3) {
-					grid[1][k - i][i] = 1;
-					grid[1][k - i - 1][i + 1] = 1;
-					grid[1][k - i - 2][i + 2] = 1;
+					for (int m = 0; m < 3; m++) {
+					grid[1][k - i - m][i + m] = 1;
+					}
 					matched = true;
 			}
 		}
@@ -160,9 +164,9 @@ bool research (void) {
 				}
 			}
 			if (counter == 3) {
-					grid[1][17 - i][1 + i + k] = 1;
-					grid[1][16 - i][2 + i + k] = 1;
-					grid[1][15 - i][3 + i + k] = 1;
+					for (int m = 1; m < 4; m++) {
+					grid[1][18 - m - i][m + i + k] = 1;
+					}
 					matched = true;
 			}
 		}
@@ -180,8 +184,60 @@ bool research (void) {
 return matched;
 }
 
-///////////////////// Eliminate clusters ////////////////////////
-int eliminate_c () {
+///////////////////// ELIMINATE CLUSTERS ////////////////////////
+int eliminate_c(void) {
+int mask;
+
+if (tile_shp == 1 || tile_shp == 2 || tile_shp == 3) {mask = 360;} else {mask = 372;} // round or square mask
+
+	for (int k = 0; k < 7; k++) {
+		for (int i = 0; i < 18; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (grid[1][i][j] == 1) {
+					tile_src.y = 11 * k;
+					tile_src.x = spr_x[tile_shp][grid[0][i][j]-1];
+					tile_dst.x = tiledst_x + 112 + (j * 12);
+					tile_dst.y = tiledst_y + 1 + (i * 11);
+					//SDL_Delay(10);
+					SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
+				}
+			}
+		}
+		SDL_RenderPresent(sr);
+	}
+
+	for (int k = 6; k > -1; k--) {
+		for (int i = 0; i < 18; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (grid[1][i][j] == 1) {
+					tile_src.y = 11 * k;
+					tile_src.x = mask;
+					tile_dst.x = tiledst_x + 112 + (j * 12);
+					tile_dst.y = tiledst_y + 1 + (i * 11);
+					//SDL_Delay(10);
+					SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
+				}
+			}
+		}
+		SDL_RenderPresent(sr);
+	}
+
+	for (int k = 0; k < 7; k++) {
+		for (int i = 0; i < 18; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (grid[1][i][j] == 1) {
+					tile_src.y = 11 * k;
+					tile_src.x = mask;
+					tile_dst.x = tiledst_x + 112 + (j * 12);
+					tile_dst.y = tiledst_y + 1 + (i * 11);
+					//SDL_Delay(10);
+					SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
+				}
+			}
+		}
+		SDL_RenderPresent(sr);
+	}
+
 	for (int y = 0; y < 18; y++) {
 		for (int x = 0; x < 8; x++) {
 			if (grid[1][y][x] == 1) {
@@ -192,8 +248,8 @@ int eliminate_c () {
 	return 0;
 }
 
-///////////////////// cascade ////////////////////////
-int cascade() {
+///////////////////// CASCADE  ////////////////////////
+int cascade(void) {
 int floor, ceiling, num_tiles;
 
 	for (int j = 0; j < 8; j++) {
@@ -211,10 +267,10 @@ int floor, ceiling, num_tiles;
 	}
 }
 
-///////////////////// clear matched ////////////////////////
+///////////////////// CLEAR MATCHED ////////////////////////
 // clear matched 3rd dimension array (this should be easy)
-int clear() {
-	for (int j = 0; j < 7; j++) {
+int clear(void) {
+	for (int j = 0; j < 8; j++) {
 		for (int i = 0; i < 18; i++) {
 			grid[1][i][j] = 0;
 		}
