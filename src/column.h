@@ -8,13 +8,13 @@ extern int mask[2];
 extern int spr_y[6];
 extern int colcnt[8];
 
-int new_column ();			// select random column to drop brick into
-int disp_column (int row, int col);	// update column board
-int new_brick (void);			// choose current/preview random brick
-int rotate_col (void);
-int display_tile ();			// display current column in play (not implemented)
-int move_horiz (void);
-int move_down (void);
+int new_column(void);			// select random column to drop brick into
+int disp_column(int row, int col);	// update column board
+int new_brick(void);			// choose current/preview random brick
+int rotate_col(void);
+int display_tile(void);			// display current column in play (not implemented)
+int move_horiz(void);
+int move_down(void);
 int count_col(void);
 
 #endif
