@@ -1,13 +1,12 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
-
-extern SDL_Renderer *sr;
-extern bool gradient_d;
+#include "sdl.h"
+#include "events.h"
 
 enum gradient {Blue = 0, Green = 10, Red = 20, Yellow = 30, Magenta = 40, Cyan = 50, Grey = 60} colour = 0;
 
 ////////////////// BOARD BACKDROP COLOURS //////////////////
-int backdrop (int colour) {
+int backdrop(int colour) {
 int k, l;
 int grad_tab[] = {
 	0x0000cc, 0x0000bb, 0x0000aa, 0x000099, 0x000088, 0x000077, 0x000066, 0x000055, 0x000044, 0x000033, // blue
@@ -22,52 +21,52 @@ int grad_tab[] = {
 	k = 0;				// gradient fill
 	if (gradient_d == false) {
 		for (int j = 0; j < 10; j++) {
-			SDL_SetRenderDrawColor (sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
+			SDL_SetRenderDrawColor(sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
 			for (int i = 0; i < 20; i++) {
-				SDL_RenderDrawLine (sr, 0, k, 319, k);
+				SDL_RenderDrawLine(sr, 0, k, 319, k);
 				k = k + 1;
 			}
 		}
 	} else {			// invert gradient
 		for (int j = 9; j > -1; j--) {
-			SDL_SetRenderDrawColor (sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
+			SDL_SetRenderDrawColor(sr, (grad_tab[j + colour] & 0x00ff0000) >> 16, (grad_tab[j + colour] & 0x0000ff00) >> 8, grad_tab[j + colour] & 0x000000ff, 255);
 			for (int i = 0; i < 20; i++) {
-				SDL_RenderDrawLine (sr, 0, k, 319, k);
+				SDL_RenderDrawLine(sr, 0, k, 319, k);
 				k = k + 1;
 			}
 		}
 	}
 
 	k = 0;				// horizontal edge light
-	SDL_SetRenderDrawColor (sr, 0x99, 0x99, 0x99, 255);
+	SDL_SetRenderDrawColor(sr, 0x99, 0x99, 0x99, 255);
 	for (int i = 0; i < 16; i++) {
-		SDL_RenderDrawLine (sr, k, 0, k, 199);
+		SDL_RenderDrawLine(sr, k, 0, k, 199);
 		k = k + 20;
 	}
 
 	k = 0;				// vertical edge light
 //	SDL_SetRenderDrawColor (sr, 0x99, 0x99, 0x99, 255);
 	for (int i = 0; i < 10; i++) {
-		SDL_RenderDrawLine (sr, 0, k, 319, k);
+		SDL_RenderDrawLine(sr, 0, k, 319, k);
 		k = k + 20;
 	}
 
 	k = 19;				// horizontal edge dark
-	SDL_SetRenderDrawColor (sr, 0x0, 0x0, 0x0, 255);
+	SDL_SetRenderDrawColor(sr, 0x0, 0x0, 0x0, 255);
 	for (int i = 0; i < 16; i++) {
-		SDL_RenderDrawLine (sr, k, 0, k, 199);
+		SDL_RenderDrawLine(sr, k, 0, k, 199);
 		k = k + 20;
 	}
 
 	k = 19;				// vertical edge dark
 //	SDL_SetRenderDrawColor (sr, 0x0, 0x0, 0x0, 255);
 	for (int i = 0; i < 10; i++) {
-			SDL_RenderDrawLine (sr, 0, k, 319, k);
+			SDL_RenderDrawLine(sr, 0, k, 319, k);
 	k = k + 20;
 	}
 
 	l = 0;				// corner highlight
-	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
+	SDL_SetRenderDrawColor(sr, 0xff, 0xff, 0xff, 255);
 	for (int j = 0; j < 10; j++) {
 		k = 0;
 		for (int i = 0; i < 16; i++) {
