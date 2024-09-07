@@ -1,7 +1,7 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 
-int handle_events ();
+int handle_events(void);
 
 extern bool next_p;	// next piece flag
 extern bool pause_f;
