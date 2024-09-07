@@ -46,7 +46,6 @@ I will provide updates as best as I can :smile:
 * Game play (music / Sound FX)
 
 ## In Progress
-* Brick (cluster elimination & explosion)
 
 ## Done
 * Cluster detection
@@ -67,8 +66,9 @@ I will provide updates as best as I can :smile:
 * Invert backdrop gradient (**ctrl + X**)
 * Next piece preview (**N**)
 * Tile Shape (**^S**)
-* Brick (drop) (**SPC**)
-* Game (loop / timing / logic) - still some issues need to be ironed out.
+* Brick (drop) (**SPC**) - improvment needed
+* Game (loop / timing / logic) - still some issues need to be ironed out - improvment needed
+* Brick (cluster elimination & explosion) - improvment needed
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
