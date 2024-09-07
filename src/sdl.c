@@ -18,7 +18,7 @@ SDL_Texture * texture;
 #define TITLE	"FUN COLUMNS"	// window title
 
 /////////////////////// INITIALIZE SDL /////////////////////////
-int initSDL () {
+int initSDL() {
 	SDL_Init (SDL_INIT_EVERYTHING);
 
 /* new window */
@@ -40,7 +40,7 @@ if (window == NULL) {
 }
 
 /////////////////////// SHUTDOWN SDL /////////////////////////
-int shutdownSDL (void) {
+int shutdownSDL(void) {
 	SDL_DestroyWindow (window);	// free memory
 	SDL_Quit ();			// shutdown entire sdl sub-systems
 	return 0;
