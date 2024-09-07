@@ -12,7 +12,7 @@ bool pause_f		= false;	// pause flag
 bool quit		= false;	// quit flag
 bool gradient_d		= false;	// gradient direction flag
 
-int handle_events () {
+int handle_events(void) {
 
 ////////////////////////////// EVENT LOOP //////////////////////////
 
@@ -44,7 +44,7 @@ int handle_events () {
 						grid[0][row + i][col] = 0; // zero out old column
 					}
 				col--;
-				disp_column (row, col);
+				disp_column(row, col);
 				break;
 			}
 
@@ -55,7 +55,7 @@ int handle_events () {
 						grid[0][row + i][col] = 0; // zero out old column
 					}
  				col++;
- 				disp_column (row, col);
+ 				disp_column(row, col);
  				break;
  			}
 
@@ -76,7 +76,7 @@ int handle_events () {
 			if(event.key.keysym.sym == SDLK_r
 			&& (event.key.keysym.mod & KMOD_SHIFT) != 0 ) {
 				rotate_col();
-				disp_column (row, col);
+				disp_column(row, col);
 				break;
 			}
 
@@ -86,7 +86,7 @@ int handle_events () {
 				grid[0][row + i][col] = 0;  		// zero out old column
 				}
 				row = 18 - (18-colcnt[col]);
-				disp_column (row, col);
+				disp_column(row, col);
 				break;
 			}
 
@@ -106,6 +106,6 @@ int handle_events () {
 				break;
 			}
 		}
-				Ren_game ();
+				Ren_game();
 	}
 }
