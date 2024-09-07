@@ -1,8 +1,8 @@
 #ifndef SDL_H
 #define SDL_H
 
-int initSDL ();
-int shutdownSDL ();
+int initSDL(void);
+int shutdownSDL(void);
 int check_key(void);
 int init_gfx(void);
 
