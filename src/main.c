@@ -51,7 +51,7 @@ int menu(void) {
 }
 
 ///////////////////// MAIN ROUTINE /////////////////////////
-int main (void) {
+int main(void) {
 
 	if (sodium_init() < 0) {			// initialise sodium
 		printf("error\n");			// -1 = failure
