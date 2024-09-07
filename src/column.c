@@ -15,8 +15,6 @@
  * ******************/
 int tile_current[3]	= {1, 2, 3};
 int tile_next[3]	= {5, 5, 5};
-int mask[2]		= {360, 372};
-int spr_y[6]		= {0, 11, 22, 33, 44, 55};
 int colcnt[8]		= {0, 0, 0, 0, 0, 0, 0, 0}; // number of empty spaces in each column
 
 //////////////////////////////// GAME BOARD ARRAY //////////////////////////
@@ -76,8 +74,6 @@ colcnt[i] = 0;
 	}
 }
 
-
-
 ////////////////////////////////  NEW COLUMN //////////////////////////
 // randomly choose from remaining available columns to drop next brick into
 int new_column(void) {
@@ -114,17 +110,17 @@ int new_column(void) {
 
 //////////////////////////////// NEW BRICK //////////////////////////
 // generate random 3 tile bricks for current and preview
-	int new_brick (void) {
+	int new_brick(void) {
 	for (int i = 0; i < 3; i++) {
-		tile_current[i] = randombytes_uniform(5) + 1;	// brick in play
-		tile_next[i] = randombytes_uniform(5) + 1;	// next brick preview
+		tile_current[i] = randombytes_uniform(6) + 1;	// brick in play
+		tile_next[i] = randombytes_uniform(6) + 1;	// next brick preview
 	}
 	return 0;
 }
 
 //////////////////////////////// ROTATE COLUMN //////////////////////////
 // rotate (cycle) tiles in brick by 1
-int rotate_col (void) {
+int rotate_col(void) {
 	int temp = tile_current[0];
 	tile_current[0] = tile_current[1];
 	tile_current[1] = tile_current[2];
@@ -134,12 +130,12 @@ int rotate_col (void) {
 
 //////////////////////////////// MOVE HORIZONTALLY //////////////////////////
 // move brick left & right using cursor keys
-int move_horiz (void) {
+int move_horiz(void) {
 return 0;
 }
 
 ////////////////////////////////  MOVE VERTICALLY//////////////////////////
 // move brick down one place at a time
-int move_down (void) {
+int move_down(void) {
 return 0;
 }
