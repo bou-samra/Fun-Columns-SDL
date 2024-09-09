@@ -36,8 +36,7 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* Points allocation routine
-* Levels (**1 -6**)
+* Score (points allocation)
 
 ## Nice to have
 * Intro (page / music)
@@ -46,6 +45,7 @@ I will provide updates as best as I can :smile:
 ## In Progress
 * High scores (entry & panel)
 * Status (panel)
+* Levels (**1 - 6**)
 
 ## Done
 * Cluster detection
