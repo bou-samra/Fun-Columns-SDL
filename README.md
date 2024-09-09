@@ -36,8 +36,6 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* High scores (entry & panel)
-* Status (panel)
 * Points allocation routine
 * Levels (**1 -6**)
 
@@ -46,6 +44,8 @@ I will provide updates as best as I can :smile:
 * Game play (music / Sound FX)
 
 ## In Progress
+* High scores (entry & panel)
+* Status (panel)
 
 ## Done
 * Cluster detection
@@ -68,7 +68,7 @@ I will provide updates as best as I can :smile:
 * Tile Shape (**^S**)
 * Brick (drop) (**SPC**) - improvment needed
 * Game (loop / timing / logic) - still some issues need to be ironed out - improvment needed
-* Brick (cluster elimination & explosion) - improvment needed
+* Brick (cluster elimination & explosion)
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
