@@ -51,24 +51,24 @@ I will provide updates as best as I can :smile:
 * Display updated board
 * No more moves / Game over
 * Random brick selection
-* Brick: Rotation (**R**), Left (**←**), Right (**→**)
+* Brick: Rotation [**R**], Left [**←**], Right [**→**]
 * Random column selection
 * Display in play brick
-* Backdrop Colour selection (**^C**) 
-* About screen (**A**)
+* Backdrop Colour selection [**^C**]
+* About screen [**A**]
 * Menu screen
-* Info screen (**I**)
-* Pause (**P**)
-* Quit (**Q**)
-* Restart (**^R**)
+* Info screen [**I**]
+* Pause [**P**]
+* Quit [**Q**]
+* Restart [**^R**]
 * Keyboard input
-* Invert backdrop gradient (**ctrl + X**)
-* Next piece preview (**N**)
-* Tile Shape (**^S**)
-* Brick (drop) (**SPC**) - improvment needed
+* Invert backdrop gradient [**ctrl + X**]
+* Next piece preview [**N**]
+* Tile Shape [**^S**]
+* Brick (drop) [**SPC**] - improvment needed
 * Game (loop / timing / logic) - still some issues need to be ironed out - improvment needed
 * Brick (cluster elimination & explosion)
-* Levels (**1 - 6**)
+* Levels [**1 - 6**]
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
