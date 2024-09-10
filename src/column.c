@@ -1,10 +1,12 @@
+#include <SDL2/SDL.h>
 #include <sodium.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include "events.h"
+#include "render.h"
 
 /********************
- * tile colours	    *
+ * TILE COLOURS	    *
  * empty	= 0 *
  * pink		= 1 *
  * green	= 2 *
@@ -63,7 +65,7 @@ int grid [2][18][8] = {
 
 ///////////////////////////// COUNT COLUMNS ////////////////////////////////
 int count_col(void) {
-for (int i=0; i < 8; i++) {
+for (int i = 0; i < 8; i++) {
 colcnt[i] = 0;
 }
 
@@ -88,12 +90,16 @@ int new_column(void) {
 		if (colcnt[i] > 3) {totcol_avail++;}			// count total available columns
 	}
 	if (totcol_avail == 0) {
-		printf("game over\n"); restart=true;} else {				// no more columns available
+		printf("game over\n");
+		restart = true;
+		} else {				// no more columns available
 			randc = randombytes_uniform(totcol_avail) + 0;	// choose random number from available columns
 			avl = -1;
 			for (int i = 0; randc != avl; i++) {		// translate random num from avail column to actual column
-				if (colcnt[i] > 3) {avl++;}
-			actual_col = i;					// might need to move this down to next brace
+				if (colcnt[i] > 3) {
+					avl++;
+				}
+				actual_col = i;					// might need to move this down to next brace
 			}
 		}
 	return actual_col;						// return the random column
@@ -134,8 +140,28 @@ int move_horiz(void) {
 return 0;
 }
 
-////////////////////////////////  MOVE VERTICALLY//////////////////////////
+////////////////////////////////  MOVE VERTICALLY //////////////////////////
 // move brick down one place at a time
 int move_down(void) {
 return 0;
+}
+
+///////////////////////// RESET GAME VARS ///////////////////////
+int reset(void) {
+// clear grid
+	for (int i = 0; i < 2; i++) {
+		for (int k = 0; k < 18; k++) {
+			for (int j = 0; j < 8; j++) {
+			grid[i][k][j] = 0;
+			}
+		}
+	}
+// reset column count
+	for (int i = 0; i < 7; i++) {
+		colcnt[i] = 0;
+	}
+
+// reset row/column
+ 	row = col = 0;	
+	return 0;
 }
