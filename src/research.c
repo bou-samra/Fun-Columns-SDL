@@ -189,7 +189,7 @@ int eliminate_c(void) {
 int mask;
 
 if (tile_shp == 1 || tile_shp == 2 || tile_shp == 3) {mask = 360;} else {mask = 372;} // round or square mask
-
+// shrink (colour to black)
 	for (int k = 0; k < 7; k++) {
 		for (int i = 0; i < 18; i++) {
 			for (int j = 0; j < 8; j++) {
@@ -198,15 +198,14 @@ if (tile_shp == 1 || tile_shp == 2 || tile_shp == 3) {mask = 360;} else {mask = 
 					tile_src.x = spr_x[tile_shp][grid[0][i][j]-1];
 					tile_dst.x = tiledst_x + 112 + (j * 12);
 					tile_dst.y = tiledst_y + 1 + (i * 11);
-					//SDL_Delay(10);
 					SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
 				}
 			}
 		}
 		SDL_RenderPresent(sr);
 	}
-
-	for (int k = 6; k > -1; k--) {
+// stretch (black to white)
+	for (int k = 5; k > -1; k--) {
 		for (int i = 0; i < 18; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (grid[1][i][j] == 1) {
@@ -214,14 +213,13 @@ if (tile_shp == 1 || tile_shp == 2 || tile_shp == 3) {mask = 360;} else {mask = 
 					tile_src.x = mask;
 					tile_dst.x = tiledst_x + 112 + (j * 12);
 					tile_dst.y = tiledst_y + 1 + (i * 11);
-					//SDL_Delay(10);
 					SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
 				}
 			}
 		}
 		SDL_RenderPresent(sr);
 	}
-
+// shrink (white to black)
 	for (int k = 0; k < 7; k++) {
 		for (int i = 0; i < 18; i++) {
 			for (int j = 0; j < 8; j++) {
@@ -230,14 +228,13 @@ if (tile_shp == 1 || tile_shp == 2 || tile_shp == 3) {mask = 360;} else {mask = 
 					tile_src.x = mask;
 					tile_dst.x = tiledst_x + 112 + (j * 12);
 					tile_dst.y = tiledst_y + 1 + (i * 11);
-					//SDL_Delay(10);
 					SDL_RenderCopy(sr, texture, &tile_src, &tile_dst); // draw colour tile
 				}
 			}
 		}
 		SDL_RenderPresent(sr);
 	}
-
+// replace exploded tile with empty tile (0)
 	for (int y = 0; y < 18; y++) {
 		for (int x = 0; x < 8; x++) {
 			if (grid[1][y][x] == 1) {
@@ -269,7 +266,7 @@ int floor, ceiling, num_tiles;
 
 ///////////////////// CLEAR MATCHED ////////////////////////
 // clear matched 3rd dimension array (this should be easy)
-int clear(void) {
+int clear_mat(void) {
 	for (int j = 0; j < 8; j++) {
 		for (int i = 0; i < 18; i++) {
 			grid[1][i][j] = 0;
