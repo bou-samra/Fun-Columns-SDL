@@ -21,7 +21,7 @@ extern int tile_shp;
 extern int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 extern int row, col;
 extern int tile_c;
-extern int last_time, current_time, deltatime, score;
+extern int last_time, current_time, deltatime, score, speed;
 extern int spr_x[5][6];
 extern int mask[2];
 extern int spr_y[6];
