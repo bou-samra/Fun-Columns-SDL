@@ -45,7 +45,6 @@ I will provide updates as best as I can :smile:
 ## In Progress
 * High scores (entry & panel)
 * Status (panel)
-* Levels (**1 - 6**)
 
 ## Done
 * Cluster detection
@@ -69,6 +68,7 @@ I will provide updates as best as I can :smile:
 * Brick (drop) (**SPC**) - improvment needed
 * Game (loop / timing / logic) - still some issues need to be ironed out - improvment needed
 * Brick (cluster elimination & explosion)
+* Levels (**1 - 6**)
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
