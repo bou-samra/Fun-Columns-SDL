@@ -16,5 +16,6 @@ int display_tile(void);			// display current column in play (not implemented)
 int move_horiz(void);
 int move_down(void);
 int count_col(void);
+int reset(void);
 
 #endif
