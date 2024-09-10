@@ -38,20 +38,20 @@ I will provide updates as best as I can :smile:
 ## Todo
 * Score (points allocation)
 
-## Nice to have
-* Intro (page / music)
-* Game play (music / Sound FX)
-
 ## In Progress
 * High scores (entry & panel)
 * Status (panel)
+
+## Nice to have
+* Intro (page / music)
+* Game play (music / Sound FX)
 
 ## Done
 * Cluster detection
 * Display updated board
 * No more moves / Game over
 * Random brick selection
-* Brick: Rotation (**R**), Left (**🡄**), Right (**🡆**)
+* Brick: Rotation (**R**), Left (**←**), Right (**→**)
 * Random column selection
 * Display in play brick
 * Backdrop Colour selection (**^C**) 
