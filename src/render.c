@@ -4,6 +4,7 @@
 #include "text.h"
 #include "ascii.h"
 #include "column.h"
+#include "render.h"
 #include "backdrop.h"
 #include "events.h"
 #include "sdl.h"
@@ -12,7 +13,7 @@
 int tile_shp = 1;
 int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 int row = 0, col = 0;
-int last_time, current_time, deltatime, score;
+int last_time, current_time, deltatime, score, speed;
 
 ///////////////// SPRITE SHEET TOP LEFT COORDINATES /////////////////
 // pink, green, purple, yellow, orange,cyan
@@ -233,7 +234,6 @@ int display_grid(void) {
 }
 
 //////////////// GAME LOGIC ////////////////
-
 int game_logic(void) {
 	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
 	disp_column (row, col);							// update column in grid
@@ -244,7 +244,7 @@ int game_logic(void) {
 			eliminate_c();
 			cascade();
 			SDL_Delay(500);
-			clear();
+			clear_mat();
 			//SDL_Delay(100);
 			display_grid();
 			SDL_RenderPresent (sr);
@@ -252,19 +252,11 @@ int game_logic(void) {
 		col = new_column();
 // next column preview here
 		new_brick();
-	} 	//else if (row == 16) {
-		//while (research()) {
-		//eliminate_c();
-		//cascade();
-		//clear();
-		//}
-		//row = 0;
-		//}
+	}
 	row++;
 }
 
 ///////////////// RENDER FRAME //////////////
-
 int Ren_frame(void) {
 	backdrop(colour);
 	Ren_logo();								// logo
@@ -286,7 +278,7 @@ int Ren_game(void) {
 	{
 		current_time = SDL_GetTicks();
 		deltatime = current_time - last_time;
-		if (deltatime > 500) {
+		if (deltatime > 500 / speed) {
 			last_time = current_time;
 			deltatime = 0;
 			game_logic();
