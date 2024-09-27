@@ -3,7 +3,7 @@
 
 int update(void);
 int display_grid(void);		// refresh game board
-int Ren_restart(void);		// game over/restart
+int enter_name(void);
 int Ren_pause(void);		// pause
 int Ren_game(void);		// render game
 int Ren_logo(void);		// display logo
@@ -16,6 +16,7 @@ int Ren_high(void);		// display high scores
 int Ren_line(char line[], int char_x, int char_y, int ln, int ll, bool col ); // parameter names in function prototypes not necessary
 int col_update(void);
 int Ren_frame(void);
+int game_logic(void);
 
 extern int tile_shp;
 extern int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
@@ -28,8 +29,6 @@ extern int spr_y[6];
 
 extern SDL_Rect logo_src;
 extern SDL_Rect logo_dst;
-//extern SDL_Rect char_src;
-//extern SDL_Rect char_dst;
 extern SDL_Rect main_back;
 extern SDL_Rect main_trim;
 extern SDL_Rect level_back;
@@ -41,6 +40,5 @@ extern SDL_Rect high_back;
 extern SDL_Rect high_trim;
 extern SDL_Rect tile_src;
 extern SDL_Rect tile_dst;
-extern SDL_Rect gameo_back;
 
 #endif
