@@ -16,13 +16,14 @@
 #include "column.h"
 #include "sdl.h"
 #include "events.h"
+#include "hiscore.h"
 
 ///////////////// MAIN MENU ////////////////////////////
 int menu(void) {
 	quit = false;
 	Ren_menu();
 	while (quit == false) {
-		SDL_Delay(20);
+//		SDL_Delay(20);
 		SDL_PollEvent(&event);
 		switch (event.type)  {
 			case SDL_KEYDOWN:
@@ -47,10 +48,7 @@ int menu(void) {
 								if (event.key.keysym.sym == SDLK_5) {speed = 3.0;}
 									if (event.key.keysym.sym == SDLK_6) {speed = 3.5;}
 				handle_events();			// game levels
-				reset();
-				Ren_restart();
-				check_key();
-				restart = false;
+				end_game();
 				Ren_menu();
 			}
 		}
@@ -63,13 +61,13 @@ int main(void) {
 	if (sodium_init() < 0) {			// initialise sodium
 		printf("error\n");			// -1 = failure
 	}
-
-	initSDL ();
+	initSDL();
 	init_gfx();
-	research ();
-	eliminate_c ();
+	next_brick();
+	initial_brick();
+	col = new_column();
 	menu();
-	shutdownSDL ();
+	shutdownSDL();
 	return 0;
 }
 
