@@ -2,18 +2,19 @@
 #include <SDL2/SDL_image.h>
 #include <stdbool.h>
 #include "text.h"
-#include "ascii.h"
 #include "column.h"
 #include "render.h"
 #include "backdrop.h"
 #include "events.h"
-#include "sdl.h"
 #include "research.h"
+#include "hiscore.h"
+#include "sdl.h"
 
 int tile_shp = 1;
 int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
-int row = 0, col = 0;
-int last_time, current_time, deltatime, score, speed;
+int row = -1, col = 0;
+int last_time, current_time, deltatime, speed;
+bool wait = true;
 
 ///////////////// SPRITE SHEET TOP LEFT COORDINATES /////////////////
 // pink, green, purple, yellow, orange,cyan
@@ -28,43 +29,20 @@ int spr_x[5][6] = {
 int spr_y[6]		= {0, 11, 22, 33, 44, 55};
 
 ///////////////// RECTANGLE COORDS /////////////////
-SDL_Rect logo_src	= { 384, 0, 78, 54 };
-SDL_Rect logo_dst	= { 230, 136, 78, 54 };
-//SDL_Rect char_src	= {463, 0 , 7 , 5};
-//SDL_Rect char_dst	= {22, 11 , 7 , 5};
-SDL_Rect main_back	= {110, 0, 100, 200};
-SDL_Rect main_trim	= {111, 0, 98, 200};
-SDL_Rect level_back	= {231, 7, 76, 66};
-SDL_Rect level_trim	= {230, 6, 78, 68};
-SDL_Rect next_back	= {257, 86, 18, 37};
-SDL_Rect next_trim	= {256, 85, 20, 39};
-SDL_Rect next_tile	= {260, 88, 12, 11};
-SDL_Rect high_back	= {13, 7, 76, 186};
-SDL_Rect high_trim	= {12, 6, 78, 188};
-SDL_Rect tile_src	= {72, 0, 12, 11};
-SDL_Rect tile_dst	= {112, 1, 12, 11};
-SDL_Rect gameo_back	= {119, 93, 82, 13};
+SDL_Rect logo_src	= { 384, 0, 78, 54 };		// Logo Source
+SDL_Rect logo_dst	= { 230, 136, 78, 54 };		// Logo Destination
+SDL_Rect main_back	= {110, 0, 100, 200};		// Main game board Background
+SDL_Rect main_trim	= {111, 0, 98, 200};		// Main game board Trim
+SDL_Rect level_back	= {231, 7, 76, 66};		// Level panel Background
+SDL_Rect level_trim	= {230, 6, 78, 68};		// Level panel Trim
+SDL_Rect next_back	= {257, 86, 18, 37};		// Next piece Background
+SDL_Rect next_trim	= {256, 85, 20, 39};		// Next piece Trim
+SDL_Rect next_tile	= {260, 88, 12, 11};		// Next Tile
+SDL_Rect high_back	= {13, 7, 76, 186};		// High score panel Background
+SDL_Rect high_trim	= {12, 6, 78, 188};		// High score panel Trim
+SDL_Rect tile_src	= {72, 0, 12, 11};		// Tile Source
+SDL_Rect tile_dst	= {112, 1, 12, 11};		// Tile Destination
 
-///////////////// ASCII LINE READER /////////////////
-// api: text, x, y, line num, line len, col
-int Ren_line(char line[], int char_x, int char_y, int ln, int ll, bool col ) {
-
-	int cc;									// char col
-	int j = 0;
-
-	if (col) {
-		cc = 2;								// white char
-	} else {
-		cc = 0;								// black char
-	}
-	for (int i = 0; i < ll; i++) {
-		SDL_Rect char_dst = {char_x + j, char_y, 8, 5};
-		SDL_Rect char_src = {ascii[line[i + ln]][cc], ascii[line[i + ln]][cc + 1], 8, 5};
-		SDL_RenderCopy(sr, texture, &char_src, &char_dst);		// render char
-		j = j + 8;							// character height
-	}
-	return 0;
-}
 ///////////////// DISPLAY STATUS /////////////////
 int Ren_level(void) {
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
@@ -168,17 +146,6 @@ int Ren_info(void) {
 	return 0;
 }
 
-///////////////// DISPLAY GAME OVER /////////////////
-int Ren_restart(void) {
-	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
-	SDL_RenderFillRect(sr, &gameo_back);					// background
-	for (int z = 0; z < 1; z++) {						// 1 line of text
-		Ren_line(gameo, gameol[z][0], gameol[z][1], z * 9, 9, 1);
-	}
-			SDL_RenderPresent(sr);
-	return 0;
-}
-
 ///////////////// DISPLAY PAUSE /////////////////
 int Ren_pause(void) {
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
@@ -235,25 +202,27 @@ int display_grid(void) {
 
 //////////////// GAME LOGIC ////////////////
 int game_logic(void) {
-	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
-	disp_column (row, col);							// update column in grid
 	count_col();								// count number of empty spaces in each column
+	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
 	if(row == colcnt[col]) {
 		row = -1;
 		while (research()) {
 			eliminate_c();
 			cascade();
+//			SDL_Delay(500);
+			clear_mat();				// clear matched
 			SDL_Delay(500);
-			clear_mat();
-			//SDL_Delay(100);
 			display_grid();
 			SDL_RenderPresent (sr);
 		}
 		col = new_column();
+		if (col == -1) {return 0;}
 // next column preview here
-		new_brick();
+		current_brick();
 	}
 	row++;
+	disp_column (row, col);							// update column in grid
+	return 0;
 }
 
 ///////////////// RENDER FRAME //////////////
