@@ -241,7 +241,7 @@ if (tile_shp == 1 || tile_shp == 2 || tile_shp == 3) {mask = 360;} else {mask = 
 			grid[0][y][x] = 0;
 			}
 		}
-	}
+	}SDL_RenderPresent(sr);
 	return 0;
 }
 
@@ -261,7 +261,7 @@ int floor, ceiling, num_tiles;
 		for (int i = 0; i < ceiling; i++) {
 			grid[0][floor - i][j] = grid[0][ceiling - i][j];
 			}					// actual drop routine
-	}
+	}SDL_RenderPresent(sr);
 }
 
 ///////////////////// CLEAR MATCHED ////////////////////////
