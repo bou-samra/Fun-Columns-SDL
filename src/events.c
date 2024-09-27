@@ -6,21 +6,21 @@
 #include "column.h"
 #include "sdl.h"
 
-bool next_p		= false;	// next piece flag
-bool restart		= false;	// restart flag
-bool pause_f		= false;	// pause flag
-bool quit		= false;	// quit flag
-bool gradient_d		= false;	// gradient direction flag
+bool next_p		= false;	// Next Piece flag
+bool pause_f		= false;	// Pause Flag
+bool quit		= false;	// Quit flag
+bool gradient_d		= false;	// Gradient Direction flag
+int game_end		= 0;		// 0 = game, 1 = restart, 2 = game over
 
 int handle_events(void) {
 
 ////////////////////////////// EVENT LOOP //////////////////////////
 
-	while (restart == false) {
+	while (game_end == 0) {
 		SDL_PollEvent (&event);
 		switch (event.type) {
 			case SDL_KEYDOWN:
-
+			count_col();				// could this be the fix?
 			// gradient colour cycle
 			if(event.key.keysym.sym == SDLK_c
 			&& (event.key.keysym.mod & KMOD_CTRL) != 0 ) {
@@ -68,7 +68,7 @@ int handle_events(void) {
 			// restart
 			if( event.key.keysym.sym == SDLK_r
 				&& (event.key.keysym.mod & KMOD_CTRL) != 0 ) {
-				restart = true;
+				game_end = 1;
 				break;
 			}
 
@@ -82,10 +82,12 @@ int handle_events(void) {
 
 			// drop/fall block/piece/brick
 			if (event.key.keysym.sym == SDLK_SPACE) {
-			for (int i = -1; i < 3; i++) {
-				grid[0][row + i][col] = 0;  		// zero out old column
+				game_logic();
+				Ren_frame();
+				for (int i = -1; i < 3; i++) {
+					grid[0][row + i][col] = 0;  		// zero out old column
 				}
-				row = 18 - (18-colcnt[col]);
+				row = 18 - (18 - colcnt[col]);
 				disp_column(row, col);
 				break;
 			}
