@@ -12,6 +12,12 @@ SDL_RWops* rwops_new;
 SDL_Surface* image;
 SDL_Texture * texture;
 
+Uint32 format;
+const char *format2;
+int access;
+int widt;
+int heig;
+
 ///////////////////////// WINDOW PARMS /////////////////////////
 #define WIDTH	1280		// pixels
 #define HEIGHT	800		// pixels
@@ -53,6 +59,9 @@ int init_gfx(void) {
 	texture = SDL_CreateTextureFromSurface(sr, image);
 	SDL_FreeSurface( image );
 	image = NULL;
+	SDL_QueryTexture(texture, &format, &access, &widt, &heig);
+	format2 = SDL_GetPixelFormatName(format);
+	printf("format: %s, access: %i, width: %i, height: %i,", format2, access, widt, heig);
 	return 0;
 }
 
