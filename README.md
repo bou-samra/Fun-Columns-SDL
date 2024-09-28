@@ -37,6 +37,7 @@ I will provide updates as best as I can :smile:
 
 ## Todo
 * Score (points allocation)
+* high score dotfile (in user home dir)
 
 ## In Progress
 * High scores (entry & panel)
