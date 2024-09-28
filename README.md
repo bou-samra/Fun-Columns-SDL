@@ -73,6 +73,7 @@ I will provide updates as best as I can :smile:
 
 ## Bugs
 * Visual artifacts
+* intermittent tile elimination issues
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
