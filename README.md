@@ -70,6 +70,10 @@ I will provide updates as best as I can :smile:
 * Brick (cluster elimination & explosion)
 * Levels [**1 - 6**]
 
+
+## Bugs
+* Visual artifacts
+
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
 * SDL Version: Jason Bou-Samra (2024)
