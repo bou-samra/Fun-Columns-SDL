@@ -48,12 +48,12 @@ I will provide updates as best as I can :smile:
 
 ## Done
 * Cluster detection
-* Display updated board
+* Display updated board (render/update)
 * No more moves / Game over
 * Random brick selection
 * Brick: Rotation [**R**], Left [**←**], Right [**→**]
 * Random column selection
-* Display in play brick
+* Display in play brick (falling brick)
 * Backdrop Colour selection [**^C**]
 * About screen [**A**]
 * Menu screen
@@ -61,7 +61,7 @@ I will provide updates as best as I can :smile:
 * Pause [**P**]
 * Quit [**Q**]
 * Restart [**^R**]
-* Keyboard input
+* Keyboard input (Event Handling)
 * Invert backdrop gradient [**ctrl + X**]
 * Next piece preview [**N**]
 * Tile Shape [**^S**]
