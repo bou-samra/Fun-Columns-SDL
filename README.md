@@ -70,7 +70,6 @@ I will provide updates as best as I can :smile:
 * Brick (cluster elimination & explosion)
 * Levels [**1 - 6**]
 
-
 ## Bugs
 * Visual artifacts
 
