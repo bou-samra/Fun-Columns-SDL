@@ -15,7 +15,7 @@ I will provide updates as best as I can :smile:
 * 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life.
 * 12/08/2024 - Code refactoring and tidyup.
 * 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle. Ironing out bugs.
-* 30/08/2024 - It's been four months already. More incremental progress. Hopefully not much longer now. 
+* 30/08/2024 - It's been four months already. More incremental progress.
 
 ## Compilation
 * Make sure to install the following development libraries
