@@ -17,7 +17,7 @@ int last_time, current_time, deltatime, speed;
 bool wait = true;
 
 ///////////////// SPRITE SHEET TOP LEFT COORDINATES /////////////////
-// pink, green, purple, yellow, orange,cyan
+// pink, green, purple, yellow, orange, cyan
 int spr_x[5][6] = {
 {0, 12, 24, 36, 48, 60},	// ball 1
 {72, 84, 96, 108, 120, 132},	// square 1
@@ -148,6 +148,10 @@ int Ren_info(void) {
 
 ///////////////// DISPLAY PAUSE /////////////////
 int Ren_pause(void) {
+	SDL_SetRenderDrawColor(sr, 0x0 , 0x0 , 0x0, 0xff);
+	SDL_RenderFillRect(sr, &main_back);					// clear background
+	SDL_SetRenderDrawColor(sr, 0xff, 0xff, 0xff, 255);
+	SDL_RenderDrawRect(sr, &main_trim);					// trim
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);
 	SDL_RenderFillRect(sr, &gameo_back);					// background
 	for (int z = 0; z < 1; z++) {						// 1 line of text
