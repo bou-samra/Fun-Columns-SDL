@@ -188,6 +188,10 @@ int reset(void) {
 
 // reset row/column
  	row = -1;
- 	col = 0;	// col = new_column();
+ 	next_brick();
+	initial_brick();
+ 	col = new_column();
+
+ 	game_end = 0;				// reset game end status
 	return 0;
 }
