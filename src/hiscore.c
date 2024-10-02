@@ -5,6 +5,7 @@
 #include "sdl.h"
 #include "events.h"
 #include "column.h"
+#include "backdrop.h"
 
 SDL_Rect gameo_back		= {119, 93, 82, 13};	// Game Over Background
 SDL_Rect gameo_trim		= {118, 92, 84, 15};	// Game Over Trim
@@ -51,7 +52,7 @@ int Ren_name(void){
 	for (int z = 0; z < 2; z++) {						// 2 lines of text
 		Ren_line(name, namel[z][0], namel[z][1], z * 10, 10, 1);
 	}
-		SDL_RenderPresent(sr);
+//		SDL_RenderPresent(sr);
 }
 
 ////////////////// RENDER CURSOR /////////////////////
@@ -61,19 +62,27 @@ int Ren_cursor(void) {
 	if (deltatime > 250) {
 		last_time = current_time;
 		deltatime = 0;
-	SDL_SetRenderDrawColor(sr, 0xff, pen1, pen1, 0xff);			// black pen
-	pen1=~pen1;
-	SDL_RenderFillRect(sr, &cursor);					// enter name cursor
-	SDL_RenderPresent(sr);
+		SDL_SetRenderDrawColor(sr, pen1, pen1, pen1, 0xff);			// black pen
+		pen1 = ~pen1;
+		SDL_RenderFillRect(sr, &cursor);					// enter name cursor
+		SDL_RenderPresent(sr);
 	}
+//	backdrop(colour);
+//	Ren_logo();								// logo
+//	Ren_level();								// render current level/score
+//	Ren_next();								// render next brick/block/piece
+//	Ren_high();								// render high scores
+//	SDL_SetRenderDrawColor (sr, 0xff, 0xff, 0xff, 255);
+//	SDL_RenderDrawRect(sr, &main_trim);					// trim
+//	display_grid();
+	Ren_name();
+	SDL_Delay(20);
 	return 0;
 }
 
 ///////////////// DISPLAY GAME OVER /////////////
 int Ren_gameover(void) {
-	Ren_name();
-	Ren_name();
-	Ren_name();
+
 		while (event.key.keysym.sym != SDLK_RETURN) {
 			Ren_cursor();
 			SDL_PollEvent (&event);
@@ -87,19 +96,17 @@ int Ren_gameover(void) {
 				}
 			}
 		}
+		return 0;
 }
 
 ////////////////// HANDLE END GAME /////////////////////////
 int end_game(void) {
 	if (game_end == 1) {			// restart
-		reset();
 		Ren_restart();				// 	Ren_restart();
-		check_key();
-		game_end = 0;
 	} else if (game_end == 2) {		// game over
-		reset();
 		Ren_gameover();
-		check_key();
-		game_end = 0;
 	}
+	check_key();
+	reset();
+	return 0;
 }
