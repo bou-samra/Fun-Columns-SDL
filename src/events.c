@@ -12,9 +12,10 @@ bool quit		= false;	// Quit flag
 bool gradient_d		= false;	// Gradient Direction flag
 int game_end		= 0;		// 0 = game, 1 = restart, 2 = game over
 
+////////////////////////////// EVENT LOOP //////////////////////////
 int handle_events(void) {
 
-////////////////////////////// EVENT LOOP //////////////////////////
+	reset();
 
 	while (game_end == 0) {
 		SDL_PollEvent (&event);
