@@ -13,4 +13,12 @@ int Ren_name(void);		// render name entry
 int end_game(void);
 int Ren_cursor(void);		// render cursor
 
+extern int score;
+extern char level_r;					// game level (remaining)
+extern char level_c;					// game level (current)
+extern int total;
+extern int hscores [8];
+extern char names[8][7+1];
+extern char name_temp[7+1];
+
 #endif
