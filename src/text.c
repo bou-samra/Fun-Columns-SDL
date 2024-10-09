@@ -80,7 +80,7 @@ char status[] = {	// current status
 "SCORE: "
 "      0"		// score
 "LEVEL: "
-"1E    1"		// levels remaining / completed (31)
+"00    1"		// levels remaining / completed (31)
 "TOTAL: "
 "      0"		// tiles smashed
 };
@@ -172,6 +172,14 @@ char name[] = {
 int namel [2][2] = {
 {120, 138},
 {120, 146}
+};
+
+char newh[] = {
+"       "
+};
+
+int newhl [1][2] = {
+{128, 146}
 };
 
 ///////// ASCII SPRITEMAP X/Y COORDS /////////
@@ -327,4 +335,40 @@ int Ren_line(char line[], int char_x, int char_y, int ln, int ll, bool col ) {
 		j = j + 8;							// character height
 	}
 	return 0;
+}
+
+/////////////// INTEGER TO STRING /////////////////
+void its(int N, char *str) {
+    int i = 0;
+    for (int i = 0; i < 8; i++) {
+		str[i] = 0;					// clear string
+	}
+	str[6]='0';
+    while (N > 0) {					// keep going until all digits done
+        str[6 - i++] = N % 10 + '0'; //convert to ASCII
+      	N /= 10;					// proceed to next digit
+    }
+//    str[i] = '\0';					// null terminate string
+}
+
+//////////////// HEX TO STRING ///////////////
+void hts(char byte, char *str) {
+
+	char niblo = (byte & 0x0F);
+	char nibhi = (byte >> 4);
+
+	if (niblo <= 9) {
+		niblo += 0x30;
+	} else {
+		niblo += 0x37;
+	}							// low nibble
+	if (nibhi <= 9) {
+		nibhi += 0x30;
+	} else {
+		nibhi += 0x37;
+	}							// high nibble
+
+	str[1] = niblo;
+	str[0] = nibhi;
+	str[6] = '\0';
 }
