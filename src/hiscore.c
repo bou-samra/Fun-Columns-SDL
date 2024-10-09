@@ -12,9 +12,18 @@ SDL_Rect gameo_trim		= {118, 92, 84, 15};	// Game Over Trim
 SDL_Rect entern_back	= {115, 131, 90, 29};	// Enter Name Background
 SDL_Rect entern_trim	= {114, 130, 92, 31};	// Enter Name Trim
 SDL_Rect cursor			= {128, 146, 7, 5};		// Name entry cursor
+SDL_Rect cursor_last	= {128, 146, 7, 5};		// last cursor position
+SDL_Rect fnt			= {128, 146, 7, 5};		// Name entry cursor
 char pen1				= 0xff;
 
-int score				= 0;
+int score				= 65535;					// current score
+char level_r			= 0x1E;					// game level (remaining)
+char level_c			= 0x00;					// game level (current)
+int total				= 0x00;					// smashed tiles
+
+int hscores [8];								// high score panel - scores
+char names[8][7+1];								// high score panel - names
+char name_temp[7+1]	= "ANTARES";
 
 ///////////////// DISPLAY RESTART /////////////////
 int Ren_restart(void) {
@@ -45,12 +54,16 @@ int Ren_name(void){
 	SDL_RenderDrawLine(sr, 203, 96, 203, 108);				// game over shadow
 
 
-	for (int z = 0; z < 1; z++) {						// 1 line of text
+	for (int z = 0; z < 1; z++) {						// 1 line of text (game over)
 		Ren_line(gameo, gameol[z][0], gameol[z][1], z * 9, 9, 1);
 	}
 
-	for (int z = 0; z < 2; z++) {						// 2 lines of text
+	for (int z = 0; z < 2; z++) {						// 2 lines of text (enter name)
 		Ren_line(name, namel[z][0], namel[z][1], z * 10, 10, 1);
+	}
+
+	for (int z = 0; z < 1; z++) {						// 1 line of text (new high)
+		Ren_line(newh, newhl[z][0], newhl[z][1], z * 7, 7, 1);
 	}
 //		SDL_RenderPresent(sr);
 }
@@ -87,13 +100,23 @@ int Ren_gameover(void) {
 			Ren_cursor();
 			SDL_PollEvent (&event);
 			if (event.type == SDL_KEYDOWN) {
-				if ((event.key.keysym.sym >= SDLK_0 && event.key.keysym.sym <= SDLK_9) || (event.key.keysym.sym >= SDLK_a && event.key.keysym.sym <= SDLK_z) || (event.key.keysym.sym == SDLK_SPACE) || (event.key.keysym.sym == SDLK_BACKSPACE) || (event.key.keysym.sym == SDLK_RETURN)) {
+				if ((event.key.keysym.sym >= SDLK_0 && event.key.keysym.sym <= SDLK_9) || (event.key.keysym.sym >= SDLK_a && event.key.keysym.sym <= SDLK_z) || (event.key.keysym.sym == SDLK_SPACE) || (event.key.keysym.sym == SDLK_RETURN)) {
 					printf("event.key.keysym.sym: %02x\n", event.key.keysym.sym);
-					cursor.x = cursor.x + 8;
+					newh[(cursor.x - 128) / 8] = event.key.keysym.sym; // fill name array
+					SDL_RenderPresent(sr);
+					cursor.x = cursor.x + 8;		// advance cursor
 					if (cursor.x == 192) {
-						cursor.x = 128;
+						cursor.x = 184;				// 192 - 8
 					}
 				}
+else if (event.key.keysym.sym == SDLK_BACKSPACE)
+{
+						cursor.x = cursor.x - 8; 			// backspace
+						if (cursor.x == 120) {
+							cursor.x = 128;				// 120 + 8
+						}
+						newh[(cursor.x - 128) / 8] = 32;
+}
 			}
 		}
 		return 0;
