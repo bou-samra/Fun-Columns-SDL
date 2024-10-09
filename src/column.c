@@ -4,6 +4,9 @@
 #include <stdbool.h>
 #include "events.h"
 #include "render.h"
+#include "text.h"
+#include "research.h"
+#include "hiscore.h"
 
 /********************
  * TILE COLOURS	    *
@@ -192,6 +195,32 @@ int reset(void) {
 	initial_brick();
  	col = new_column();
 
- 	game_end = 0;				// reset game end status
+// reset status panel
+//char r_matched[7]	= "      0";
+//char r_score[7]		= "      0";
+//char r_level[7]		= "1E    1";
+//char r_high[7]		= ".......";
+
+//	for (int i = 0; i < 7; i++) {
+//		status[35 + i] = r_matched[i];
+//		status[7 + i] = r_score[i];
+//		status[21 + i] = r_level[i];
+//	}
+
+// reset total
+		total = 0x00;
+
+// reset score
+		score = 0x00;
+
+// reset level ramaining
+		level_r = 0x1E;
+
+// reset level completed
+		level_c = 0x01;
+
+// reset game end status
+ 	game_end = 0;
+
 	return 0;
 }
