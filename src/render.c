@@ -15,6 +15,7 @@ int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
 int row = -1, col = 0;
 int last_time, current_time, deltatime, speed;
 bool wait = true;
+char str[8];
 
 ///////////////// SPRITE SHEET TOP LEFT COORDINATES /////////////////
 // pink, green, purple, yellow, orange, cyan
@@ -53,6 +54,25 @@ int Ren_level(void) {
 	SDL_RenderDrawLine(sr, 234, 75, 309, 75);
 	SDL_RenderDrawLine(sr, 308, 75, 308, 10);
 	SDL_RenderDrawLine(sr, 309, 74, 309, 10);
+
+// update status panel
+	its(score, str);			// score
+	for (int i = 0; i < 7; i++) {
+		status[7 + i] = str[i];
+	}
+	hts(level_r, str);			// levels remaining
+	for (int i = 0; i < 2; i++) {
+		status[21 + i] = str[i];
+	}
+	hts(level_c, str);			// level current
+	for (int i = 0; i < 2; i++) {
+		status[26 + i] = str[i];
+	}
+	its(total, str);			// total bricks smashed
+	for (int i = 0; i < 7; i++) {
+		status[35 + i] = str[i];
+	}
+
 	for (int z = 0; z < 6; z++) {						// 6 lines of text
 		Ren_line(status, statusl[z][0], statusl[z][1], z * 7, 7, 1);
 	}
@@ -93,6 +113,17 @@ int Ren_high(void) {
 	SDL_RenderDrawLine(sr, 17, 195, 91, 195);
 	SDL_RenderDrawLine(sr, 90, 194, 90, 10);
 	SDL_RenderDrawLine(sr, 91, 195, 91, 10);
+
+// update status panel
+	for (int i = 0; i < 7; i++) {
+		high[14 + i] = name_temp[i];
+	}
+	its(score, str);			// score
+	for (int i = 0; i < 7; i++) {
+		high[21 + i] = str[i];
+	}
+
+
 	for (int z = 0; z < 18; z++) {						// 18 lines of text
 		Ren_line(high, highl[z][0], highl[z][1], z * 7, 7, 1);
 	}
@@ -207,7 +238,7 @@ int display_grid(void) {
 //////////////// GAME LOGIC ////////////////
 int game_logic(void) {
 	count_col();								// count number of empty spaces in each column
-	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
+//	printf("colcnt[%i]: %i, row: %i\n", col, colcnt[col], row);
 	if(row == colcnt[col]) {
 		row = -1;
 		while (research()) {
@@ -219,8 +250,12 @@ int game_logic(void) {
 			display_grid();
 			SDL_RenderPresent (sr);
 		}
+
 		col = new_column();
-		if (col == -1) {return 0;}
+		if (col == -1) {
+			return 0;
+		}
+
 // next column preview here
 		current_brick();
 	}
@@ -256,6 +291,7 @@ int Ren_game(void) {
 			deltatime = 0;
 			game_logic();
 		}
+
 		Ren_frame();
 		return 0;
 	}
