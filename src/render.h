@@ -26,6 +26,7 @@ extern int last_time, current_time, deltatime, score, speed;
 extern int spr_x[5][6];
 extern int mask[2];
 extern int spr_y[6];
+extern char str[8];
 
 extern SDL_Rect logo_src;
 extern SDL_Rect logo_dst;
