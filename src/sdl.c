@@ -61,7 +61,7 @@ int init_gfx(void) {
 	image = NULL;
 	SDL_QueryTexture(texture, &format, &access, &widt, &heig);
 	format2 = SDL_GetPixelFormatName(format);
-	printf("format: %s, access: %i, width: %i, height: %i,", format2, access, widt, heig);
+	printf("format: %s, access: %i, width: %i, height: %i\n", format2, access, widt, heig);
 	return 0;
 }
 
