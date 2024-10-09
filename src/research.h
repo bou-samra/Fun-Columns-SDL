@@ -6,4 +6,5 @@ int eliminate_c(void);		// eliminate clusters
 int cascade(void);		// cascade ceiling tiles
 int clear_mat(void);		// clear matched array;
 
+extern int matched;
 #endif
