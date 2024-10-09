@@ -12,8 +12,10 @@
 #include "render.h"
 #include "column.h"
 #include "sdl.h"
+#include "hiscore.h"
 
 #define DEBUG 0
+
 //////////////////// DETECT CLUSTERS //////////////////////
 
 bool research(void) {
@@ -269,6 +271,7 @@ int floor, ceiling, num_tiles;
 int clear_mat(void) {
 	for (int j = 0; j < 8; j++) {
 		for (int i = 0; i < 18; i++) {
+			if (grid[1][i][j] == 1) {total++;}
 			grid[1][i][j] = 0;
 		}
 	}
