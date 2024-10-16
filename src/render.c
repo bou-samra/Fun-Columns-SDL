@@ -64,9 +64,9 @@ int Ren_level(void) {
 	for (int i = 0; i < 2; i++) {
 		status[21 + i] = str[i];
 	}
-	hts(level_c, str);			// level current
+	its(level_c, str);			// level current
 	for (int i = 0; i < 2; i++) {
-		status[26 + i] = str[i];
+		status[26 + i] = str[5 + i];
 	}
 	its(total, str);			// total bricks smashed
 	for (int i = 0; i < 7; i++) {
@@ -115,12 +115,28 @@ int Ren_high(void) {
 	SDL_RenderDrawLine(sr, 91, 195, 91, 10);
 
 // update status panel
-	for (int i = 0; i < 7; i++) {
-		high[14 + i] = name_temp[i];
+//	for (int i = 0; i < 7; i++) {
+//		high[14 + i] = name_temp[i];
+//	}
+//	its(score, str);			// score
+//	for (int i = 0; i < 7; i++) {
+//		high[21 + i] = str[i];
+//	}
+
+
+// print hscores
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 7; j++) {
+			high[21 + (i * 14) + j] = hscores[i][j];
+		}
 	}
-	its(score, str);			// score
-	for (int i = 0; i < 7; i++) {
-		high[21 + i] = str[i];
+
+
+// print hall of fame names
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 7; j++) {
+			high[14 + (i * 14) + j] = names[i][j];
+		}
 	}
 
 
@@ -250,7 +266,7 @@ int game_logic(void) {
 			display_grid();
 			SDL_RenderPresent (sr);
 		}
-
+		score = score + 5;
 		col = new_column();
 		if (col == -1) {
 			return 0;
