@@ -75,7 +75,7 @@ int handle_events(void) {
 
 			// rotate tiles
 			if(event.key.keysym.sym == SDLK_r
-			&& (event.key.keysym.mod & KMOD_SHIFT) != 0 ) {
+	/*		&& (event.key.keysym.mod & KMOD_SHIFT) != 0*/ ) {
 				rotate_col();
 				disp_column(row, col);
 				break;
