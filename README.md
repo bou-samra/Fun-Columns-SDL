@@ -6,16 +6,22 @@ The aim of this project is to implement the original Free Tools Association (FTA
 For those who may not have heard of the Free Tools Association (FTA) and their influence within the Apple IIGS community many
 decades ago, a [website](http://www.freetoolsassociation.com/) is still maintained by Olivier Goguel (one of the original members of the group).
 
-<b>Please Note:</b> This source code is very much in a state of flux and is currently a bit of a mess.
-I will provide updates as best as I can :smile:
+~~<b>Please Note:</b> This source code is very much in a state of flux and is currently a bit of a mess.
+I will provide updates as best as I can :smile:~~
+
+<b>UPDATE:</b><br>
+Game in playable state now, feature complete. still needs a bit of a polish.<br>
+I really enjoyed coding this game. I hope you find it enjoyable.<br>
+Much thanks to Olivier Goguel for inspiration and support. :smile:
 
 ## Change-log:
 
 * 04/05/2024 - Foundation code.
 * 20/07/2024 - Making progress, albeit slowly when I can find time between work and personal life.
 * 12/08/2024 - Code refactoring and tidyup.
-* 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle. Ironing out bugs.
+* 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle. Squashing bugs.
 * 30/08/2024 - It's been four months already. More incremental progress.
+* 16/10/2024 - All features nearly complete, bugs need to be squashed. Code still a bit rough around the edges.
 
 ## Compilation
 * Make sure to install the following development libraries
@@ -36,12 +42,12 @@ I will provide updates as best as I can :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* Score (points allocation)
 * high score dotfile (in user home dir)
 
 ## In Progress
-* High scores (entry & panel)
-* Status (panel)
+* High scores (entry & panel) - almost done
+* Status (panel) - almost done
+* Score (points allocation) - almost done
 
 ## Nice to have
 * Intro (page / music)
