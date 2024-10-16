@@ -207,20 +207,11 @@ int reset(void) {
 //		status[21 + i] = r_level[i];
 //	}
 
-// reset total
-		total = 0x00;
-
-// reset score
-		score = 0x00;
-
-// reset level ramaining
-		level_r = 0x1E;
-
-// reset level completed
-		level_c = 0x01;
-
-// reset game end status
- 	game_end = 0;
+	total		= 0x00;				// reset total
+	score		= 0x00;				// reset score
+//	level_r		= 0x1E;				// reset level ramaining
+//	level_c 	= 0x01;				// reset level completed
+	game_end	= 0;				// reset game end status
 
 	return 0;
 }
