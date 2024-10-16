@@ -37,6 +37,7 @@ bool research(void) {
 						grid[1][k][i + m] = 1;
 					}
 					matched = true;
+					score = score + 55;
 				}
 		}
 	}
@@ -55,6 +56,7 @@ bool research(void) {
 						grid[1][i + m][k] = 1;
 					}
 					matched = true;
+					score = score + 55;
 				}
 		}
 	}
@@ -73,6 +75,7 @@ bool research(void) {
 						grid[1][i + k + m][i + m] = 1;
 					}
 					matched = true;
+					score = score + 55;
 				}
 
 		}
@@ -92,6 +95,7 @@ bool research(void) {
 						grid[1][i + k + m][i + m] = 1;
 					}
 					matched = true;
+					score = score + 55;
 				}
 		}
 		z = z - 1;
@@ -112,6 +116,7 @@ bool research(void) {
 					grid[1][i + m][i + k + m] = 1;
 					}
 					matched = true;
+					score = score + 55;
 				}
 		}
 		z = z - 1;
@@ -131,6 +136,7 @@ bool research(void) {
 					grid[1][k - i - m][i + m] = 1;
 					}
 					matched = true;
+					score = score + 55;
 				}
 		}
 
@@ -150,6 +156,7 @@ bool research(void) {
 					grid[1][k - i - m][i + m] = 1;
 					}
 					matched = true;
+					score = score + 55;
 			}
 		}
 		z = z - 1;
@@ -170,6 +177,7 @@ bool research(void) {
 					grid[1][18 - m - i][m + i + k] = 1;
 					}
 					matched = true;
+					score = score + 55;
 			}
 		}
 		z = z - 1;
