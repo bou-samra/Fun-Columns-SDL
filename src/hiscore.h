@@ -7,6 +7,7 @@ extern SDL_Rect entern_back;	// enter name back ground
 extern SDL_Rect entern_trim;	// enter name trim
 extern SDL_Rect cursor;		// Name entry cursor
 
+int insert_score(int);		// insert entry into high score list
 int Ren_restart(void);		// restart
 int Ren_gameover(void);		// game over
 int Ren_name(void);		// render name entry
@@ -17,7 +18,7 @@ extern int score;
 extern char level_r;					// game level (remaining)
 extern char level_c;					// game level (current)
 extern int total;
-extern int hscores [8];
+extern char hscores [8][7+1];
 extern char names[8][7+1];
 extern char name_temp[7+1];
 
