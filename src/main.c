@@ -18,7 +18,7 @@
 
 //////////////// ABOUT ///////////////////////
 void about_fc() {
-	printf("Fun Columns\nOriginal IIGS version: Olivier Goguel (FTA 1990/91)\nSDL version 1.0: Jason Bou-Samra\n");
+	printf("Fun Columns\nOriginal IIGS version: Olivier Goguel (FTA 1990/91)\nSDL version 1.0: Jason Bou-Samra (2024)\n");
 }
 
 ///////////////////// MAIN ROUTINE /////////////////////////
