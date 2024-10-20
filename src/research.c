@@ -13,6 +13,7 @@
 #include "column.h"
 #include "sdl.h"
 #include "hiscore.h"
+#include "backdrop.h"
 
 #define DEBUG 0
 
@@ -283,4 +284,10 @@ int clear_mat(void) {
 			grid[1][i][j] = 0;
 		}
 	}
+	if (!(total % 50)) {			// increment backdrop every 50 drops
+		colour = colour + 10;
+		if (colour >= 69) {colour = 0;}
+				backdrop(colour);
+	}
+
 }
