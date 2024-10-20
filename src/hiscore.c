@@ -177,7 +177,7 @@ int end_game(void) {
 			insert_score(score);						// else display name entry dialog
 		}
 	}
-	check_key();
+//	check_key();
 	reset();
 	return 0;
 }
