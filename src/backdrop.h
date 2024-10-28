@@ -3,5 +3,6 @@
 
 extern int colour;
 int backdrop(int colour);
+int cyc_grad(void);
 
 #endif
