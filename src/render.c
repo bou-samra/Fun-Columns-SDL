@@ -9,6 +9,7 @@
 #include "research.h"
 #include "hiscore.h"
 #include "sdl.h"
+#include "level.h"
 
 int tile_shp = 1;
 int tilesrc_x, tilesrc_y, tiledst_x, tiledst_y;
@@ -56,7 +57,7 @@ int Ren_level(void) {
 	SDL_RenderDrawLine(sr, 309, 74, 309, 10);
 
 // update status panel
-	its(score, str);			// score
+	its(score, str, 0x20);			// score
 	for (int i = 0; i < 7; i++) {
 		status[7 + i] = str[i];
 	}
@@ -64,11 +65,11 @@ int Ren_level(void) {
 	for (int i = 0; i < 2; i++) {
 		status[21 + i] = str[i];
 	}
-	its(level_c, str);			// level current
+	its(level_c, str, 0x20);			// level current
 	for (int i = 0; i < 2; i++) {
 		status[26 + i] = str[5 + i];
 	}
-	its(total, str);			// total bricks smashed
+	its(total, str, 0x20);			// total bricks smashed
 	for (int i = 0; i < 7; i++) {
 		status[35 + i] = str[i];
 	}
@@ -260,8 +261,8 @@ int game_logic(void) {
 		while (research()) {
 			eliminate_c();
 			cascade();
-//			SDL_Delay(500);
 			clear_mat();				// clear matched
+//			level_current();
 			SDL_Delay(500);
 			display_grid();
 			SDL_RenderPresent (sr);
@@ -282,6 +283,7 @@ int game_logic(void) {
 
 ///////////////// RENDER FRAME //////////////
 int Ren_frame(void) {
+	level_current();
 	backdrop(colour);
 	Ren_logo();								// logo
 	Ren_level();								// render current level/score
