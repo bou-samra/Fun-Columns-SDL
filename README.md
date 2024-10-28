@@ -12,7 +12,7 @@ I will provide updates as best as I can :smile:~~
 <b>UPDATE:</b><br>
 Game in playable state now, feature complete. still needs a bit of a polish.<br>
 I really enjoyed coding this game. I hope you find it enjoyable.<br>
-Much thanks to Olivier Goguel for inspiration and support. :smile:
+Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 
 ## Change-log:
 
@@ -22,6 +22,7 @@ Much thanks to Olivier Goguel for inspiration and support. :smile:
 * 18/08/2024 - Code starting to come together and take shape. Overall structure begining to settle. Squashing bugs.
 * 30/08/2024 - It's been four months already. More incremental progress.
 * 16/10/2024 - All features nearly complete, bugs need to be squashed. Code still a bit rough around the edges.
+* 28/10/2024 - Feature complete
 
 ## Compilation
 * Make sure to install the following development libraries
@@ -45,9 +46,7 @@ Much thanks to Olivier Goguel for inspiration and support. :smile:
 * high score dotfile (in user home dir)
 
 ## In Progress
-* High scores (entry & panel) - almost done
-* Status (panel) - almost done
-* Score (points allocation) - almost done
+
 
 ## Nice to have
 * Intro (page / music)
@@ -76,6 +75,9 @@ Much thanks to Olivier Goguel for inspiration and support. :smile:
 * Game (loop / timing / logic) - still some issues need to be ironed out - improvment needed
 * Brick (cluster elimination & explosion)
 * Levels [**1 - 6**]
+* High scores (entry & panel)
+* Status (panel) - needs improvment
+* Score (points allocation) - needs improvment
 
 ## Bugs
 * Visual artifacts
