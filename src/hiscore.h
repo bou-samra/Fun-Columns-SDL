@@ -18,6 +18,7 @@ extern int score;
 extern char level_r;					// game level (remaining)
 extern char level_c;					// game level (current)
 extern int total;
+extern int total_c;
 extern char hscores [8][7+1];
 extern char names[8][7+1];
 extern char name_temp[7+1];
