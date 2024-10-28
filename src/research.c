@@ -13,7 +13,6 @@
 #include "column.h"
 #include "sdl.h"
 #include "hiscore.h"
-#include "backdrop.h"
 
 #define DEBUG 0
 
@@ -38,7 +37,7 @@ bool research(void) {
 						grid[1][k][i + m] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 				}
 		}
 	}
@@ -57,7 +56,7 @@ bool research(void) {
 						grid[1][i + m][k] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 				}
 		}
 	}
@@ -76,7 +75,7 @@ bool research(void) {
 						grid[1][i + k + m][i + m] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 				}
 
 		}
@@ -96,7 +95,7 @@ bool research(void) {
 						grid[1][i + k + m][i + m] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 				}
 		}
 		z = z - 1;
@@ -117,7 +116,7 @@ bool research(void) {
 					grid[1][i + m][i + k + m] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 				}
 		}
 		z = z - 1;
@@ -137,7 +136,7 @@ bool research(void) {
 					grid[1][k - i - m][i + m] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 				}
 		}
 
@@ -157,7 +156,7 @@ bool research(void) {
 					grid[1][k - i - m][i + m] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 			}
 		}
 		z = z - 1;
@@ -178,7 +177,7 @@ bool research(void) {
 					grid[1][18 - m - i][m + i + k] = 1;
 					}
 					matched = true;
-					score = score + 55;
+					score = score + 50;
 			}
 		}
 		z = z - 1;
@@ -280,14 +279,8 @@ int floor, ceiling, num_tiles;
 int clear_mat(void) {
 	for (int j = 0; j < 8; j++) {
 		for (int i = 0; i < 18; i++) {
-			if (grid[1][i][j] == 1) {total++;}
+			if (grid[1][i][j] == 1) {total++; total_c++;}
 			grid[1][i][j] = 0;
 		}
 	}
-	if (!(total % 50)) {			// increment backdrop every 50 drops
-		colour = colour + 10;
-		if (colour >= 69) {colour = 0;}
-				backdrop(colour);
-	}
-
 }
