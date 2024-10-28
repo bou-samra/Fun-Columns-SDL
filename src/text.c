@@ -338,10 +338,10 @@ int Ren_line(char line[], int char_x, int char_y, int ln, int ll, bool col ) {
 }
 
 /////////////// INTEGER TO STRING /////////////////
-void its(int N, char *str) {
+void its(int N, char *str, char asc_fill) {
     int i = 0;
     for (int i = 0; i < 8; i++) {
-		str[i] = 0x2e;					// clear string
+		str[i] = asc_fill;					// clear string
 	}
 	str[6]='0';
     while (N > 0) {					// keep going until all digits done
