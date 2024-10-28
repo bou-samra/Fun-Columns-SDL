@@ -2,7 +2,7 @@
 #define TEXT_H
 
 int Ren_line(char line[], int char_x, int char_y, int ln, int ll, bool col );
-void its(int, char *);
+void its(int, char *, char);
 void hts(char, char *);
 
 extern char about[];
