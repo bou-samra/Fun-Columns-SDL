@@ -83,3 +83,11 @@ int grad_tab[] = {
 
 return 0;
 }
+
+//////////////// GRADIENT CYCLE /////////////////////
+int cyc_grad (void) {
+	colour = colour + 10;
+	if (colour >= 69) {colour = 0;}
+			backdrop(colour);
+	return 0;
+}
