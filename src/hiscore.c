@@ -20,8 +20,10 @@ int score;					// current score
 char level_r		= 0x1E;			// game level (remaining)
 char level_c		= 0x00;			// game level (current)
 int total		= 0x00;			// smashed tiles
-int hscores1[8]		= {1000, 780, 600, 500, 400, 300, 200, 100};
+int total_c		= 0x00;			// total count
 
+
+int hscores1[8]		= {1000, 780, 600, 500, 400, 300, 200, 100};
 char hscores[8][7+1]	= {{"......."}, {"......."}, {"......."}, {"......."}, {"......."}, {"......."}, {"......."}, {"......."}};		// high score panel - scores
 char names[8][7+1]	= {{"HULK   "}, {"EARTH  "}, {"BUSH   "}, {"AXE    "}, {"PERFECT"}, {"POWERS "}, {"TUGBOAT"}, {"DINO   "}};								// high score panel - names
 char name_temp[7+1]	= "       ";
@@ -59,7 +61,7 @@ int insert_score(int new) {
 		}
 	}
 	for (int j = 0; j < 8; j++){
-		its(hscores1[j], str);							// convert high scores to ASCII code
+		its(hscores1[j], str, 0x2e);							// convert high scores to ASCII code
 		for (int k = 0; k < 8; k++){
 			hscores[j][k] = str[k];						// store in high score ASCII array
 		}
@@ -177,7 +179,6 @@ int end_game(void) {
 			insert_score(score);						// else display name entry dialog
 		}
 	}
-//	check_key();
 	reset();
 	return 0;
 }
