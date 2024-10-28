@@ -25,9 +25,7 @@ int handle_events(void) {
 			// gradient colour cycle
 			if(event.key.keysym.sym == SDLK_c
 			&& (event.key.keysym.mod & KMOD_CTRL) != 0 ) {
-				colour = colour + 10;
-				if (colour >= 69) {colour = 0;}
-				backdrop(colour);
+				cyc_grad();
 				break;
 			}
 
