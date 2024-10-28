@@ -26,7 +26,8 @@ int main(void) {
 
 	about_fc();
 	if (sodium_init() < 0) {			// initialise sodium
-		printf("error\n");			// -1 = failure
+		printf("error... sodium failed\n");			// -1 = failure
+		return 0;
 	}
 	initSDL();						// init. SDL subsystem
 	init_gfx();						// sprite map
