@@ -171,9 +171,11 @@ int end_game(void) {
 
 	if (game_end == 1) {								// restart
 		Ren_restart();								// Ren_restart();
+		check_key();
 	} else if (game_end == 2) {							// game over
 		if (score < hscores1[7]) {
 			Ren_restart();							// if score less then lowest on list, no name entry
+			check_key();
 		} else {
 			Ren_gameover();
 			insert_score(score);						// else display name entry dialog
