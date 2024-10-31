@@ -16,9 +16,9 @@ SDL_Rect cursor_last	= {128, 146, 7, 5};	// last cursor position
 SDL_Rect fnt		= {128, 146, 7, 5};	// Name entry cursor
 char pen1		= 0xff;
 
-int score;					// current score
-char level_r		= 0x1E;			// game level (remaining)
-char level_c		= 0x00;			// game level (current)
+int score			= 0x00;			// current score
+char level_r		= 0x00;			// game level (remaining)
+char level_c		= 0x01;			// game level (current)
 int total		= 0x00;			// smashed tiles
 int total_c		= 0x00;			// total count
 
@@ -36,6 +36,7 @@ int Ren_restart(void) {
 		Ren_line(gameo, gameol[z][0], gameol[z][1], z * 9, 9, 1);
 	}
 	SDL_RenderPresent(sr);
+	check_key();
 	return 0;
 }
 
@@ -171,16 +172,14 @@ int end_game(void) {
 
 	if (game_end == 1) {								// restart
 		Ren_restart();								// Ren_restart();
-		check_key();
 	} else if (game_end == 2) {							// game over
 		if (score < hscores1[7]) {
 			Ren_restart();							// if score less then lowest on list, no name entry
-			check_key();
 		} else {
 			Ren_gameover();
 			insert_score(score);						// else display name entry dialog
 		}
 	}
-	reset();
+//	reset();
 	return 0;
 }
