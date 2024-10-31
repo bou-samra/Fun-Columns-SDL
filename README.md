@@ -26,9 +26,9 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 
 ## Compilation
 * Make sure to install the following development libraries
-  1. SDL2
-  2. SDL_image 2.0
-  3. libsodium
+  * SDL2
+  * SDL_image 2.0
+  * libsodium
  
 * Type the following commands:
 
@@ -43,10 +43,10 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* high score dotfile (in user home dir)
+* 
 
 ## In Progress
-
+* High score dotfile (in user home dir)
 
 ## Nice to have
 * Intro (page / music)
@@ -81,7 +81,7 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 
 ## Bugs
 * Visual artifacts
-* intermittent tile elimination issues
+* Intermittent tile elimination issues
 
 ## Author(s)
 * Apple IIGS Version: FTA (1990/91)
