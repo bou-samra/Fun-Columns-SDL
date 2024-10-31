@@ -1,7 +1,7 @@
 # Fun Columns SDL
 
 ## Description:
-The aim of this project is to implement the original Free Tools Association (FTA) version of their Fun Columns game in SDL.
+The aim of this project is to implement the original Free Tools Association (FTA) version of their Fun Columns game in SDL, which I really enjoyed playing back in the day.
 
 For those who may not have heard of the Free Tools Association (FTA) and their influence within the Apple IIGS community many
 decades ago, a [website](http://www.freetoolsassociation.com/) is still maintained by Olivier Goguel (one of the original members of the group).
