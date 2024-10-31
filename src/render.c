@@ -206,6 +206,8 @@ int Ren_pause(void) {
 		Ren_line(pause, pausel[z][0], pausel[z][1], z * 9, 9, 1);
 	}
 		SDL_RenderPresent(sr);
+		check_key();
+		pause_f = false;
 	return 0;
 }
 
