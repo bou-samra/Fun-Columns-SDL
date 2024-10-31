@@ -7,6 +7,7 @@
 #include "text.h"
 #include "research.h"
 #include "hiscore.h"
+#include "backdrop.h"
 
 /********************
  * TILE COLOURS	    *
@@ -209,9 +210,12 @@ int reset(void) {
 
 	total		= 0x00;				// reset total
 	score		= 0x00;				// reset score
-//	level_r		= 0x1E;				// reset level ramaining
-//	level_c 	= 0x01;				// reset level completed
+	level_r		= 0x00;				// reset level ramaining
+	level_c 	= 0x01;				// reset level completed
 	game_end	= 0;				// reset game end status
+	pause_f		= false;
+	quit		= false;
+	colour		= 0;
 
 	return 0;
 }
