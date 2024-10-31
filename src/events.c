@@ -15,7 +15,7 @@ int game_end		= 0;		// 0 = game, 1 = restart, 2 = game over
 ////////////////////////////// EVENT LOOP //////////////////////////
 int handle_events(void) {
 
-	reset();
+//	reset();
 
 	while (game_end == 0) {
 		SDL_PollEvent (&event);
