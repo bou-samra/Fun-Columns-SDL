@@ -11,7 +11,7 @@ I will provide updates as best as I can :smile:~~
 
 <b>UPDATE:</b><br>
 Game in playable state now, feature complete. still needs a bit of a polish.<br>
-I really enjoyed coding this game. I hope you find it enjoyable.<br>
+I really enjoyed programming this game. I hope you find it enjoyable to play.<br>
 Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 
 ## Change-log:
