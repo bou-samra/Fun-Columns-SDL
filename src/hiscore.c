@@ -23,8 +23,8 @@ int total		= 0x00;			// smashed tiles
 int total_c		= 0x00;			// total count
 
 
-int hscores1[8]		= {1000, 780, 600, 500, 400, 300, 200, 100};
-char hscores[8][7+1]	= {{"......."}, {"......."}, {"......."}, {"......."}, {"......."}, {"......."}, {"......."}, {"......."}};		// high score panel - scores
+int hscores1[8]		= {10000, 9000, 8000, 7000, 6000, 5000, 4000, 1};
+char hscores[8][7+1]	= {{"..10000"}, {"...9000"}, {"...8000"}, {"...7000"}, {"...6000"}, {"...5000"}, {"...4000"}, {"......1"}};		// high score panel - scores
 char names[8][7+1]	= {{"HULK   "}, {"EARTH  "}, {"BUSH   "}, {"AXE    "}, {"PERFECT"}, {"POWERS "}, {"TUGBOAT"}, {"DINO   "}};								// high score panel - names
 char name_temp[7+1]	= "       ";
 
