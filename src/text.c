@@ -37,7 +37,7 @@ int aboutl [13][2] = {
 char high[] = {		//  high scores
 "HIGH   "
 "SCORES:"
-"HULK   "			// OLIVIER
+"HULK2  "			// OLIVIER
 "..10000"
 "EARTH  "			// J-YVES
 "...9000"
