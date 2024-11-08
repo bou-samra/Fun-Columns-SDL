@@ -43,10 +43,10 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * To move game window using GNOME (Press Super [win] key) and right click/hold mouse) anywhere in game window.
 
 ## Todo
-* 
+* Nothing
 
 ## In Progress
-*
+* Nothing
 
 ## Nice to have
 * Intro (page / music)
