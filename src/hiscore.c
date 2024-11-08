@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 #include "text.h"
@@ -6,6 +7,9 @@
 #include "events.h"
 #include "column.h"
 #include "backdrop.h"
+
+FILE *fptr_r;                                           // pointer to read handle
+FILE *fptr_w;
 
 SDL_Rect gameo_back	= {119, 93, 82, 13};	// Game Over Background
 SDL_Rect gameo_trim	= {118, 92, 84, 15};	// Game Over Trim
@@ -22,11 +26,47 @@ char level_c		= 0x01;			// game level (current)
 int total		= 0x00;			// smashed tiles
 int total_c		= 0x00;			// total count
 
-
 int hscores1[8]		= {10000, 9000, 8000, 7000, 6000, 5000, 4000, 1};
 char hscores[8][7+1]	= {{"..10000"}, {"...9000"}, {"...8000"}, {"...7000"}, {"...6000"}, {"...5000"}, {"...4000"}, {"......1"}};		// high score panel - scores
 char names[8][7+1]	= {{"HULK   "}, {"EARTH  "}, {"BUSH   "}, {"AXE    "}, {"PERFECT"}, {"POWERS "}, {"TUGBOAT"}, {"DINO   "}};								// high score panel - names
 char name_temp[7+1]	= "       ";
+
+
+/////////////// HIGH SCORE to ASCII ///////////////////////
+int hs2asc(void){
+	for (int j = 0; j < 8; j++){
+		its(hscores1[j], str, 0x2e);						// convert high scores to ASCII code
+		for (int k = 0; k < 8; k++){
+			hscores[j][k] = str[k];						// store in high score ASCII array
+		}
+	}
+}
+
+///////////////// FILE OPS /////////////////
+int filewrite(void) {
+	fptr_w = fopen(".fc_dat", "wb");		// open file for binary mode writing
+	if (fptr_w == NULL) {
+		perror("Error opening file");
+		return(-1);
+	}						// handle fopen error, if any
+	fwrite(&hscores1, sizeof(hscores1), 1, fptr_w);	// write high scores to file
+	fwrite(names, sizeof(names), 1, fptr_w);	// write names to file
+ 	fclose(fptr_w);					// close write file
+	return 0;
+}
+
+int fileread(void) {
+	fptr_r = fopen(".fc_dat", "rb");		// open file for binary mode reading
+	if(fptr_r == NULL) {
+		perror("Error opening file");
+		return(-1);
+	}						// handle fopen error, if any
+	fread(&hscores1, sizeof(hscores1), 1, fptr_r);	// read high scores from file
+	fread(names, 8, 8, fptr_r);			// read names from file
+	fclose(fptr_r);					// close read file
+	hs2asc();
+	return 0;
+}
 
 ///////////////// DISPLAY RESTART /////////////////
 int Ren_restart(void) {
@@ -61,15 +101,9 @@ int insert_score(int new) {
 				break;
 		}
 	}
-	for (int j = 0; j < 8; j++){
-		its(hscores1[j], str, 0x2e);							// convert high scores to ASCII code
-		for (int k = 0; k < 8; k++){
-			hscores[j][k] = str[k];						// store in high score ASCII array
-		}
-	}
+	hs2asc();
 	return 0;									// all done
 }
-
 /////////////////// RENDER NAME ////////////////////
 int Ren_name(void){
 	SDL_SetRenderDrawColor(sr, 0xff , 0xff , 0xff, 0xff);				// white pen
