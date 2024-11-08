@@ -15,6 +15,7 @@
 #include "column.h"
 #include "sdl.h"
 #include "menu.h"
+#include "hiscore.h"
 
 //////////////// ABOUT ///////////////////////
 void about_fc() {
@@ -31,7 +32,9 @@ int main(void) {
 	}
 	initSDL();						// init. SDL subsystem
 	init_gfx();						// sprite map
+	fileread();
 	menu();							// main menu
+	filewrite();
 	shutdownSDL();
 	return 0;
 }
