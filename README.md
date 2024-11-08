@@ -46,7 +46,7 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * 
 
 ## In Progress
-* High score dotfile (in user home dir)
+*
 
 ## Nice to have
 * Intro (page / music)
@@ -78,6 +78,7 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * High scores (entry & panel)
 * Status (panel) - needs improvment
 * Score (points allocation) - needs improvment
+* High score dotfile (~~in user home dir~~)
 
 ## Bugs
 * Visual artifacts
