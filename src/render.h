@@ -8,6 +8,7 @@ int Ren_pause(void);		// pause
 int Ren_game(void);		// render game
 int Ren_logo(void);		// display logo
 int Ren_about(void);		// display about
+int Ren_saving(void);
 int Ren_info(void);		// info screen
 int Ren_menu(void);		// main menu
 int Ren_level(void);		// display level / current score
