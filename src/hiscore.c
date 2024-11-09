@@ -52,6 +52,7 @@ int filewrite(void) {
 	fwrite(&hscores1, sizeof(hscores1), 1, fptr_w);	// write high scores to file
 	fwrite(names, sizeof(names), 1, fptr_w);	// write names to file
  	fclose(fptr_w);					// close write file
+ 	Ren_saving();
 	return 0;
 }
 
