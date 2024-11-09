@@ -148,6 +148,16 @@ int infol [11][2] =  {
 {116, 134}	// have fun !
 };
 
+char saving [] = {
+"  SAVING   "
+"HIGH SCORES"
+};
+
+int savingl [2][2] = {
+{118, 91},	//  saving
+{118, 98}	//  high scores
+};
+
 char gameo[] = {
 "GAME OVER"
 };
