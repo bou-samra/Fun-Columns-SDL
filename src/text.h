@@ -15,6 +15,8 @@ extern char m_menu[];
 extern int m_menul [10][2];		// menu
 extern char info[];
 extern int infol [11][2];		// instructions
+extern char saving[];
+extern int savingl [2][2];		// saving
 extern char gameo[];
 extern int gameol [1][2];		// game over / restart
 extern char pause[];
