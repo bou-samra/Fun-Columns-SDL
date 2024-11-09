@@ -7,6 +7,7 @@ extern SDL_Rect entern_back;	// enter name back ground
 extern SDL_Rect entern_trim;	// enter name trim
 extern SDL_Rect cursor;		// Name entry cursor
 
+int hs2asc(void);
 int filewrite(void);
 int fileread(void);
 int insert_score(int);		// insert entry into high score list
