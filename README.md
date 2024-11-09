@@ -23,6 +23,7 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * 30/08/2024 - It's been four months already. More incremental progress.
 * 16/10/2024 - All features nearly complete, bugs need to be squashed. Code still a bit rough around the edges.
 * 28/10/2024 - Feature complete
+* 09/11/2024 - :smile:
 
 ## Compilation
 * Make sure to install the following development libraries
@@ -47,10 +48,6 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 
 ## In Progress
 * Nothing
-
-## Nice to have
-* Intro (page / music)
-* Game play (music / Sound FX)
 
 ## Done
 * Cluster detection
@@ -79,6 +76,10 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * Status (panel) - needs improvment
 * Score (points allocation) - needs improvment
 * High score dotfile (~~in user home dir~~)
+
+## Nice to have (Future features)
+* Intro (page / music)
+* Game play (music / Sound FX)
 
 ## Bugs
 * Visual artifacts
