@@ -12,7 +12,7 @@ I will provide updates as best as I can :smile:~~
 <b>UPDATE:</b><br>
 Game in playable state now, feature complete. still needs a bit of a polish.<br>
 I really enjoyed programming this game. I hope you find it enjoyable to play.<br>
-Much thanks to Olivier Goguel for inspiration and moral support. :smile:
+Much thanks to Olivier Goguel for inspiration and moral support. :smile:<br>
 
 ## Change-log:
 
@@ -23,7 +23,8 @@ Much thanks to Olivier Goguel for inspiration and moral support. :smile:
 * 30/08/2024 - It's been four months already. More incremental progress.
 * 16/10/2024 - All features nearly complete, bugs need to be squashed. Code still a bit rough around the edges.
 * 28/10/2024 - Feature complete
-* 09/11/2024 - :smile:
+* 10/11/2024 - Added game instruction manual to repository.
+* 10/11/2024 - **This project is now concluded.**
 
 ## Compilation
 * Make sure to install the following development libraries
