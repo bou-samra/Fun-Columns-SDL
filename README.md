@@ -1,5 +1,7 @@
 # Fun Columns SDL
 
+<img src="https://raw.githubusercontent.com/bou-samra/Fun-Columns-SDL/main/img/fun%20columns%20package.png" width="300">
+
 ## Description:
 The aim of this project is to implement the original Free Tools Association (FTA) version of their Fun Columns game in SDL, which I really enjoyed playing back in the day.
 
